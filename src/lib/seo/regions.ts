@@ -1,0 +1,213 @@
+// Country (gl) and language (hl) option lists for the SEO Tools dropdowns.
+// Codes are the Google gl/hl values; labels are shown in the UI.
+
+// `code` is the Google `gl` (ISO-3166 alpha-2, lowercase). Source list below is
+// grouped by tier for readability; the exported COUNTRIES is sorted A→Z by label.
+const COUNTRIES_RAW: { code: string; label: string }[] = [
+  // ── Tier 1 ──
+  { code: "us", label: "United States" },
+  { code: "gb", label: "United Kingdom" },
+  { code: "ca", label: "Canada" },
+  { code: "au", label: "Australia" },
+  { code: "nz", label: "New Zealand" },
+  { code: "ie", label: "Ireland" },
+  // ── Tier 2 ──
+  { code: "de", label: "Germany" },
+  { code: "fr", label: "France" },
+  { code: "nl", label: "Netherlands" },
+  { code: "be", label: "Belgium" },
+  { code: "ch", label: "Switzerland" },
+  { code: "at", label: "Austria" },
+  { code: "se", label: "Sweden" },
+  { code: "no", label: "Norway" },
+  { code: "dk", label: "Denmark" },
+  { code: "fi", label: "Finland" },
+  { code: "lu", label: "Luxembourg" },
+  { code: "it", label: "Italy" },
+  { code: "es", label: "Spain" },
+  { code: "pt", label: "Portugal" },
+  { code: "sg", label: "Singapore" },
+  { code: "hk", label: "Hong Kong" },
+  { code: "jp", label: "Japan" },
+  { code: "kr", label: "South Korea" },
+  { code: "il", label: "Israel" },
+  { code: "ae", label: "United Arab Emirates" },
+  // ── Europe (broader) ──
+  { code: "gr", label: "Greece" },
+  { code: "cy", label: "Cyprus" },
+  { code: "mt", label: "Malta" },
+  { code: "is", label: "Iceland" },
+  { code: "pl", label: "Poland" },
+  { code: "cz", label: "Czechia" },
+  { code: "sk", label: "Slovakia" },
+  { code: "hu", label: "Hungary" },
+  { code: "ro", label: "Romania" },
+  { code: "bg", label: "Bulgaria" },
+  { code: "hr", label: "Croatia" },
+  { code: "si", label: "Slovenia" },
+  { code: "rs", label: "Serbia" },
+  { code: "ba", label: "Bosnia & Herzegovina" },
+  { code: "mk", label: "North Macedonia" },
+  { code: "al", label: "Albania" },
+  { code: "me", label: "Montenegro" },
+  { code: "ee", label: "Estonia" },
+  { code: "lv", label: "Latvia" },
+  { code: "lt", label: "Lithuania" },
+  { code: "ua", label: "Ukraine" },
+  { code: "by", label: "Belarus" },
+  { code: "md", label: "Moldova" },
+  { code: "ru", label: "Russia" },
+  { code: "tr", label: "Turkey" },
+  // ── Americas ──
+  { code: "mx", label: "Mexico" },
+  { code: "br", label: "Brazil" },
+  { code: "ar", label: "Argentina" },
+  { code: "cl", label: "Chile" },
+  { code: "co", label: "Colombia" },
+  { code: "pe", label: "Peru" },
+  { code: "uy", label: "Uruguay" },
+  { code: "ec", label: "Ecuador" },
+  { code: "ve", label: "Venezuela" },
+  { code: "cr", label: "Costa Rica" },
+  { code: "pa", label: "Panama" },
+  { code: "gt", label: "Guatemala" },
+  { code: "do", label: "Dominican Republic" },
+  { code: "pr", label: "Puerto Rico" },
+  // ── Asia–Pacific ──
+  { code: "in", label: "India" },
+  { code: "id", label: "Indonesia" },
+  { code: "my", label: "Malaysia" },
+  { code: "th", label: "Thailand" },
+  { code: "vn", label: "Vietnam" },
+  { code: "ph", label: "Philippines" },
+  { code: "tw", label: "Taiwan" },
+  { code: "cn", label: "China" },
+  { code: "pk", label: "Pakistan" },
+  { code: "bd", label: "Bangladesh" },
+  { code: "lk", label: "Sri Lanka" },
+  { code: "np", label: "Nepal" },
+  { code: "kz", label: "Kazakhstan" },
+  { code: "uz", label: "Uzbekistan" },
+  { code: "az", label: "Azerbaijan" },
+  { code: "ge", label: "Georgia" },
+  { code: "am", label: "Armenia" },
+  // ── Middle East ──
+  { code: "sa", label: "Saudi Arabia" },
+  { code: "qa", label: "Qatar" },
+  { code: "kw", label: "Kuwait" },
+  { code: "bh", label: "Bahrain" },
+  { code: "om", label: "Oman" },
+  { code: "jo", label: "Jordan" },
+  { code: "lb", label: "Lebanon" },
+  // ── Africa ──
+  { code: "za", label: "South Africa" },
+  { code: "eg", label: "Egypt" },
+  { code: "ma", label: "Morocco" },
+  { code: "tn", label: "Tunisia" },
+  { code: "dz", label: "Algeria" },
+  { code: "ng", label: "Nigeria" },
+  { code: "ke", label: "Kenya" },
+  { code: "gh", label: "Ghana" },
+];
+
+const LANGUAGES_RAW: { code: string; label: string }[] = [
+  { code: "en", label: "English" },
+  { code: "ru", label: "Russian" },
+  { code: "uk", label: "Ukrainian" },
+  { code: "el", label: "Greek" },
+  { code: "de", label: "German" },
+  { code: "fr", label: "French" },
+  { code: "es", label: "Spanish" },
+  { code: "it", label: "Italian" },
+  { code: "pt", label: "Portuguese" },
+  { code: "nl", label: "Dutch" },
+  { code: "pl", label: "Polish" },
+  { code: "tr", label: "Turkish" },
+  { code: "ar", label: "Arabic" },
+  { code: "hi", label: "Hindi" },
+  { code: "zh", label: "Chinese" },
+  { code: "ja", label: "Japanese" },
+  { code: "ko", label: "Korean" },
+  { code: "bg", label: "Bulgarian" },
+  { code: "ro", label: "Romanian" },
+  { code: "cs", label: "Czech" },
+  { code: "sk", label: "Slovak" },
+  { code: "sl", label: "Slovenian" },
+  { code: "hr", label: "Croatian" },
+  { code: "sr", label: "Serbian" },
+  { code: "hu", label: "Hungarian" },
+  { code: "sv", label: "Swedish" },
+  { code: "fi", label: "Finnish" },
+  { code: "da", label: "Danish" },
+  { code: "no", label: "Norwegian" },
+  { code: "et", label: "Estonian" },
+  { code: "lv", label: "Latvian" },
+  { code: "lt", label: "Lithuanian" },
+  { code: "ka", label: "Georgian" },
+  { code: "kk", label: "Kazakh" },
+  { code: "az", label: "Azerbaijani" },
+  { code: "hy", label: "Armenian" },
+  { code: "he", label: "Hebrew" },
+  { code: "fa", label: "Persian" },
+  { code: "th", label: "Thai" },
+  { code: "vi", label: "Vietnamese" },
+  { code: "id", label: "Indonesian" },
+  { code: "ms", label: "Malay" },
+  { code: "tl", label: "Filipino" },
+  { code: "sq", label: "Albanian" },
+  { code: "mk", label: "Macedonian" },
+  { code: "be", label: "Belarusian" },
+  { code: "is", label: "Icelandic" },
+  { code: "ga", label: "Irish" },
+  { code: "cy", label: "Welsh" },
+  { code: "af", label: "Afrikaans" },
+  { code: "sw", label: "Swahili" },
+  { code: "bs", label: "Bosnian" },
+  { code: "ur", label: "Urdu" },
+  { code: "bn", label: "Bengali" },
+  { code: "si", label: "Sinhala" },
+  { code: "ne", label: "Nepali" },
+  { code: "uz", label: "Uzbek" },
+];
+
+// Sorted A→Z by label for easy scanning in the dropdowns.
+export const COUNTRIES = [...COUNTRIES_RAW].sort((a, b) => a.label.localeCompare(b.label));
+export const LANGUAGES = [...LANGUAGES_RAW].sort((a, b) => a.label.localeCompare(b.label));
+
+// Country (gl) → the language its market mostly runs in — what a local user would
+// type into Google. Deliberately not always the official language: by/kz live on
+// Russian online, za on English. Picking a country only *preselects* this; the
+// language select stays free, so en-for-DE remains one deliberate click away.
+const DEFAULT_LANGUAGE: Record<string, string> = {
+  // ── Tier 1 ──
+  us: "en", gb: "en", ca: "en", au: "en", nz: "en", ie: "en",
+  // ── Tier 2 ──
+  de: "de", fr: "fr", nl: "nl", be: "nl", ch: "de", at: "de",
+  se: "sv", no: "no", dk: "da", fi: "fi", lu: "fr", it: "it",
+  es: "es", pt: "pt", sg: "en", hk: "zh", jp: "ja", kr: "ko",
+  il: "he", ae: "ar",
+  // ── Europe ──
+  gr: "el", cy: "el", mt: "en", is: "is", pl: "pl", cz: "cs",
+  sk: "sk", hu: "hu", ro: "ro", bg: "bg", hr: "hr", si: "sl",
+  rs: "sr", ba: "bs", mk: "mk", al: "sq", me: "sr", ee: "et",
+  lv: "lv", lt: "lt", ua: "uk", by: "ru", md: "ro", ru: "ru", tr: "tr",
+  // ── Americas ──
+  mx: "es", br: "pt", ar: "es", cl: "es", co: "es", pe: "es",
+  uy: "es", ec: "es", ve: "es", cr: "es", pa: "es", gt: "es",
+  do: "es", pr: "es",
+  // ── Asia–Pacific ──
+  in: "hi", id: "id", my: "ms", th: "th", vn: "vi", ph: "tl",
+  tw: "zh", cn: "zh", pk: "ur", bd: "bn", lk: "si", np: "ne",
+  kz: "ru", uz: "uz", az: "az", ge: "ka", am: "hy",
+  // ── Middle East ──
+  sa: "ar", qa: "ar", kw: "ar", bh: "ar", om: "ar", jo: "ar", lb: "ar",
+  // ── Africa ──
+  za: "en", eg: "ar", ma: "ar", tn: "ar", dz: "ar", ng: "en",
+  ke: "sw", gh: "en",
+};
+
+// Language a gl maps to by default. Falls back to en for anything unknown
+// (every code in COUNTRIES is covered — see regions.test.ts).
+export function defaultLanguageFor(gl: string): string {
+  return DEFAULT_LANGUAGE[(gl || "").trim().toLowerCase()] ?? "en";
+}

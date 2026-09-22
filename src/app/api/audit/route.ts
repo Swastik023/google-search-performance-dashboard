@@ -1,0 +1,145 @@
+import { NextResponse } from "next/server";
+import { authOptions } from "@/lib/auth";
+import { workspaceUserId } from "@/lib/team/workspace";
+import { prisma } from "@/lib/prisma";
+import { recoverStaleAudits } from "@/lib/audit/crawler";
+import { kickAuditQueue } from "@/lib/audit/queue";
+import { toAuditHistoryRow } from "@/lib/audit/historyRows";
+
+// Site Audit — built-in crawler, no external APIs.
+// POST /api/audit { siteId, maxPages? }  → queue an audit (the pump starts it as soon as
+//                                          a concurrency slot is free — with the queue idle
+//                                          that is within a fraction of a second), returns { id }
+// GET  /api/audit?siteId=                → list audits for a site (latest first)
+// GET  /api/audit                        → workspace-wide history across every site (thin
+//                                          rows) plus the sites that have never been audited
+
+export async function POST(req: Request) {
+  const userId = await workspaceUserId("act");
+  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const b = await req.json().catch(() => ({}));
+  const siteId = String(b.siteId ?? "");
+  // Default: crawl the whole site. A client may still pass a smaller number (the advanced field),
+  // but omitting it no longer means "stop at 200 pages and do not mention it".
+  let maxPages = Math.min(5000, Math.max(10, parseInt(String(b.maxPages ?? 5000), 10) || 5000));
+
+  const site = await prisma.site.findFirst({ where: { id: siteId, userId } });
+  if (!site) return NextResponse.json({ error: "Not found" }, { status: 404 });
+
+  // One active audit per site at a time — a queued order holds the site just as firmly
+  // as a running crawl.
+  const running = await prisma.siteAudit.findFirst({ where: { siteId, status: { in: ["running", "queued"] } } });
+  if (running) return NextResponse.json({ error: "already_running", id: running.id }, { status: 409 });
+
+  const baselineAuditId = String(b.baselineAuditId ?? "").trim() || null;
+  let baselineOptions: { ignorePatterns?: string[]; skipDefaultIgnores?: boolean; seedFromSitemap?: boolean } | null = null;
+  if (baselineAuditId) {
+    const baseline = await prisma.siteAudit.findFirst({
+      where: { id: baselineAuditId, siteId, status: "completed" },
+      select: { id: true, maxPages: true, options: true },
+    });
+    if (!baseline) return NextResponse.json({ error: "baseline_not_found" }, { status: 400 });
+    if (b.maxPages == null) maxPages = baseline.maxPages;
+    if (b.ignorePatterns == null && b.skipDefaultIgnores == null && baseline.options) {
+      try { baselineOptions = JSON.parse(baseline.options); } catch { /* legacy row */ }
+    }
+  }
+
+  // A verification run repeats the baseline's crawl scope unless the caller explicitly changes
+  // it. That keeps a missing page from looking like a fix merely because exclusions changed.
+  const options = baselineOptions ?? {
+    ignorePatterns: Array.isArray(b.ignorePatterns)
+      ? b.ignorePatterns.map(String)
+      : String(b.ignorePatterns ?? "").split(/[\n,]/),
+    skipDefaultIgnores: b.skipDefaultIgnores === true,
+    seedFromSitemap: b.seedFromSitemap === true,
+  };
+  const audit = await prisma.siteAudit.create({
+    data: {
+      siteId,
+      status: "queued",
+      maxPages,
+      stage: "crawl",
+      progress: 0,
+      trigger: "manual",
+      heartbeatAt: new Date(),
+      options: JSON.stringify(options),
+      baselineAuditId,
+    },
+  });
+  // The queue owns execution now: it claims the row into a concurrency slot (essentially
+  // immediately when the queue is idle) and applies the retry policy if the run fails.
+  kickAuditQueue(0);
+  return NextResponse.json({ id: audit.id });
+}
+
+export async function GET(req: Request) {
+  const userId = await workspaceUserId();
+
+  const { searchParams } = new URL(req.url);
+  const siteId = searchParams.get("siteId") ?? "";
+
+  // Workspace-wide history. Scoping runs through site.userId, so this branch is owner-only:
+  // a share token names exactly one site, and for that caller the per-site branch below is the
+  // whole world. Rows stay thin (scalars extracted by toAuditHistoryRow) — the full summary and
+  // verification JSON remains a click away in the per-site view. Like the other portfolio
+  // sweeps, it selects live sites only: archived and hidden properties are deliberately
+  // shelved, and both the runs list and the never-audited list skip them. The per-site Audit
+  // tab keeps showing a shelved site's full history on purpose — hiding a property must not
+  // read as its history being gone.
+  if (!siteId) {
+    if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const [rows, sites] = await Promise.all([
+      prisma.siteAudit.findMany({
+        where: { site: { userId, archivedAt: null, hidden: false } },
+        orderBy: { startedAt: "desc" },
+        select: {
+          id: true, status: true, trigger: true, startedAt: true, finishedAt: true,
+          pagesCrawled: true, baselineAuditId: true, error: true, summary: true, verification: true,
+          site: { select: { id: true, url: true, auditSettings: true } },
+        },
+      }),
+      prisma.site.findMany({
+        where: { userId, archivedAt: null, hidden: false },
+        select: { id: true, url: true, auditSettings: true },
+      }),
+    ]);
+    const auditedSiteIds = new Set(rows.map(row => row.site.id));
+    return NextResponse.json({
+      audits: rows.map(row => toAuditHistoryRow(row, row.site)),
+      neverAudited: sites.filter(s => !auditedSiteIds.has(s.id)),
+    });
+  }
+
+  // Owner session — or a valid share token for this exact site (read-only guest view).
+  const shareToken = searchParams.get("shareToken") ?? "";
+  const site = userId
+    ? await prisma.site.findFirst({ where: { id: siteId, userId } })
+    : shareToken
+      ? await prisma.site.findFirst({ where: { id: siteId, shareToken, shareEnabled: true } })
+      : null;
+  if (!site) return NextResponse.json({ error: userId ? "Not found" : "Unauthorized" }, { status: userId ? 404 : 401 });
+
+  // Free audits are safe to restart after a process crash. This claims stale rows atomically and
+  // starts them again with their stored options; paid SEO jobs deliberately use a different policy.
+  if (userId) await recoverStaleAudits(siteId);
+
+  const audits = await prisma.siteAudit.findMany({
+    where: { siteId },
+    orderBy: { startedAt: "desc" },
+    take: 20,
+    select: {
+      id: true, status: true, stage: true, progress: true, attempt: true, heartbeatAt: true,
+      baselineAuditId: true, verification: true, startedAt: true, finishedAt: true,
+      pagesCrawled: true, maxPages: true, summary: true, error: true,
+    },
+  });
+  return NextResponse.json({
+    audits: audits.map(a => ({
+      ...a,
+      summary: a.summary ? JSON.parse(a.summary) : null,
+      verification: a.verification ? JSON.parse(a.verification) : null,
+    })),
+  });
+}
