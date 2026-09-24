@@ -1,4 +1,4 @@
-# opengsc.org — what to change for 1.4.0
+# ranktracker-console.org — what to change for 1.4.0
 
 The public site is not in this repository, so this file is the hand-off: what is now wrong, what is
 missing, and the exact claims that are safe to make. Every statement below is true of the code in
@@ -42,7 +42,7 @@ Short blurbs, in the order they matter for a first-time visitor:
 
 ## 3. Disclaimer (the important one)
 
-`opengsc.org/disclaimer/` is currently generic — Google affiliation, API quota, security, no
+`ranktracker-console.org/disclaimer/` is currently generic — Google affiliation, API quota, security, no
 professional advice. The README is more honest than the public site, which is the wrong way round.
 Bring the page in line with the README's Disclaimer section and add, explicitly:
 

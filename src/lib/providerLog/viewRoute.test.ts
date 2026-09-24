@@ -85,7 +85,7 @@ function matches(r: Row, where: any): boolean {
   return true;
 }
 
-const dir = mkdtempSync(join(tmpdir(), "opengsc-plog-"));
+const dir = mkdtempSync(join(tmpdir(), "ranktracker-console-plog-"));
 const stub = (name: string, src: string) => {
   const p = join(dir, name);
   writeFileSync(p, src);
@@ -180,7 +180,7 @@ beforeEach(() => {
 });
 
 const get = async (query = "") => {
-  const res = await route.GET(new Request(`https://opengsc.test/api/provider-log${query}`));
+  const res = await route.GET(new Request(`https://ranktracker-console.test/api/provider-log${query}`));
   return { status: res.status, body: await res.json() as any };
 };
 

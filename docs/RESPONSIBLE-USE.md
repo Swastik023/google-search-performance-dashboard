@@ -1,7 +1,7 @@
 # Responsible use and product risks
 
 This document is the repository source of truth for risk disclosures that must also appear on the
-public OpenGSC disclaimer page and at the relevant product entry points.
+public RankTracker Console disclaimer page and at the relevant product entry points.
 
 ## Private Indexer Network
 
@@ -19,7 +19,7 @@ jurisdiction that applies to you.
 ## Metrics reseller links
 
 The **Buy credits / Get key** links on the Ahrefs and Semrush reseller options are referral links.
-OpenGSC does not require the reseller: official provider hosts remain available, a custom compatible
+RankTracker Console does not require the reseller: official provider hosts remain available, a custom compatible
 gateway can be configured, and metrics can be imported from CSV without any API key.
 
 Reselling access to Ahrefs or Semrush APIs may violate those vendors’ terms and may be withdrawn

@@ -18,7 +18,7 @@ const PROBE_TAKEN = "dynadot.com";
 function probeFree(): string {
   // Random rather than fixed: a fixed probe name would eventually be registered by somebody, and
   // the connection test would start reporting a broken key on a working one.
-  return `opengsc-probe-${Math.random().toString(36).slice(2, 12)}.com`;
+  return `ranktracker-console-probe-${Math.random().toString(36).slice(2, 12)}.com`;
 }
 
 export async function GET() {

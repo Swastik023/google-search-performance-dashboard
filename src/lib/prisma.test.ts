@@ -16,7 +16,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 // A scratch database, because dev.db is tracked in git and journal_mode is written into the file.
-const dir = mkdtempSync(join(tmpdir(), "opengsc-prisma-"));
+const dir = mkdtempSync(join(tmpdir(), "ranktracker-console-prisma-"));
 process.env.DATABASE_URL = `file:${join(dir, "scratch.db")}`;
 
 test("the connection prisma hands out is in WAL with a busy timeout", async () => {
@@ -42,7 +42,7 @@ test("a MySQL url is never taken down the SQLite path", async () => {
   // point is *how*. If the pragma work ran first it would fail earlier and differently, and
   // would have opened a SQLite file named after a connection string.
   assert.throws(
-    () => createAdapter("mysql://user:pw@localhost:3306/opengsc", true),
+    () => createAdapter("mysql://user:pw@localhost:3306/ranktracker-console", true),
     /adapter-mariadb/,
   );
   assert.deepEqual(readdirSync(dir), before, "the MySQL path touched the filesystem");

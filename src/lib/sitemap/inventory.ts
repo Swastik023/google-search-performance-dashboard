@@ -161,7 +161,7 @@ async function fetchSitemapXml(url: string): Promise<string> {
     timeoutMs: 15_000,
     maxBytes: MAX_SITEMAP_BYTES,
     headers: {
-      "User-Agent": "Mozilla/5.0 (compatible; OpenGSC-Sitemap/1.0; +https://opengsc.org)",
+      "User-Agent": "Mozilla/5.0 (compatible; RankTracker Console-Sitemap/1.0; +https://ranktracker-console.org)",
       Accept: "application/xml,text/xml,application/gzip,*/*;q=0.1",
     },
   });

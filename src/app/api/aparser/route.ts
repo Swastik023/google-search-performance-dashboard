@@ -164,7 +164,7 @@ export async function POST(req: Request) {
     const cfg = String(creds.configPreset ?? "").trim();
     if (cfg && cfg !== APARSER_DEFAULT_CONFIG) {
       const probe = await aparserCall(creds, "oneRequest", {
-        query: "opengsc-config-check", parser: "OpenGSC::ConfigCheck", configPreset: cfg,
+        query: "ranktracker-console-config-check", parser: "RankTracker Console::ConfigCheck", configPreset: cfg,
         preset: "default", rawResults: 1, doLog: 0,
       }, APARSER_PROBE_TIMEOUT_MS);
       if (!probe.data && isMissingConfigPreset(probe.error)) {

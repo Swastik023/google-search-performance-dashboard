@@ -76,7 +76,7 @@ async function checkSafeBrowsing(domain: string, apiKey: string): Promise<{
   if (!apiKey) return { safe: true, threats: [], error: "no_key" };
   try {
     const body = {
-      client: { clientId: "opengsc", clientVersion: "1.0" },
+      client: { clientId: "ranktracker-console", clientVersion: "1.0" },
       threatInfo: {
         threatTypes: ["MALWARE", "SOCIAL_ENGINEERING", "UNWANTED_SOFTWARE", "POTENTIALLY_HARMFUL_APPLICATION"],
         platformTypes: ["ANY_PLATFORM"],

@@ -97,7 +97,7 @@ async function main(): Promise<void> {
 
   const plan = positionMatchPlan(site);
   const a = await run(`3a. tracker plan (${plan.matchType})`, plan);
-  await run("3b. not-found control", { domains: ["opengsc-probe-nonexistent-site.com"], matchType: "domain" });
+  await run("3b. not-found control", { domains: ["ranktracker-console-probe-nonexistent-site.com"], matchType: "domain" });
   await run("3c. exact domain + www twin (subdomain plan)", { domains: [site, `www.${site}`], matchType: "domain" });
 
   console.log(`\n3d. ${APARSER_SERP_PARSERS.google} full SERP for comparison`);

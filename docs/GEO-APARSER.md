@@ -26,7 +26,7 @@ all (see `extractLinksFromText` in `src/lib/seo/geo.ts`).
 
 **Web search must be on.** It is OFF by default in this parser, and with it off the answer comes
 out of the model's weights, which is exactly what the GEO module exists to say is not evidence
-about search visibility. OpenGSC therefore sends it as an explicit `override` on every request;
+about search visibility. RankTracker Console therefore sends it as an explicit `override` on every request;
 if your build rejects that option id, the request is retried once without it and your preset has
 to carry the setting instead.
 
@@ -62,5 +62,5 @@ password to a vendor endpoint.
 ## Trade-offs to state plainly
 
 Reliability becomes your proxy pool rather than a vendor SLA, and driving a free consumer surface
-with browser automation is your call to make against that service's terms. OpenGSC talks only to
+with browser automation is your call to make against that service's terms. RankTracker Console talks only to
 the A-Parser instance you point it at.

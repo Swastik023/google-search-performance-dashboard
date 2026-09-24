@@ -33,10 +33,10 @@ import "dotenv/config";
 import { runUpsert } from "../src/lib/db/upsert";
 import { rawQuery, rawExec, currentDialect } from "../src/lib/db/raw";
 
-const KEYWORD = "__opengsc_selftest__";
+const KEYWORD = "__ranktracker-console_selftest__";
 const COUNTRY = "zz";
 const PROVIDER = "__selftest__";
-const USER = "__opengsc_selftest__";
+const USER = "__ranktracker-console_selftest__";
 const MONTH = "1970-01";
 
 const iso = (offsetDays: number) =>

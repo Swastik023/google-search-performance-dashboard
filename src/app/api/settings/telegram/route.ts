@@ -62,7 +62,7 @@ export async function POST(req: Request) {
 
     if (action === "test") {
       if (!chatId) return NextResponse.json({ error: "no_chat" }, { status: 400 });
-      const r = await sendTelegram(token, chatId, "✅ OpenGSC: Telegram connected. Alerts and digests will arrive here.");
+      const r = await sendTelegram(token, chatId, "✅ RankTracker Console: Telegram connected. Alerts and digests will arrive here.");
       return r.ok ? NextResponse.json({ ok: true }) : NextResponse.json({ error: r.error }, { status: 502 });
     }
 

@@ -2,10 +2,10 @@
 
 Search Console tells you how you are performing. It cannot tell you how much demand exists, how
 hard a keyword is to win, or who is winning instead of you — those numbers come from a third
-party. This module brings Ahrefs and Semrush data into OpenGSC and, more importantly, joins it
+party. This module brings Ahrefs and Semrush data into RankTracker Console and, more importantly, joins it
 with your own GSC data, which produces answers neither source has on its own.
 
-Everything here is **optional**. With nothing configured, OpenGSC behaves exactly as it did
+Everything here is **optional**. With nothing configured, RankTracker Console behaves exactly as it did
 before: the free Domain Rating on dashboard cards keeps working with no key, and every new
 column simply shows an em dash.
 
@@ -193,7 +193,7 @@ Two things to be aware of, stated plainly:
 
 - Reselling API access is against Ahrefs' and Semrush' terms of service, and such access can be
   withdrawn without notice. That risk is yours, not the project's.
-- Nothing in OpenGSC depends on it. The official endpoints are the defaults, the import path
+- Nothing in RankTracker Console depends on it. The official endpoints are the defaults, the import path
   needs no API at all, and the free Domain Rating keeps working regardless.
 
 ## 5. Troubleshooting
@@ -205,7 +205,7 @@ one-line fix.
 **Import says it saved rows but nothing appears** — check the market. Volumes are stored per
 country, and a US import will not show against a list you are viewing as `de`.
 
-**`400` from the API** — usually an invalid field in `select`. Check `pm2 logs opengsc`; the
+**`400` from the API** — usually an invalid field in `select`. Check `pm2 logs ranktracker-console`; the
 provider's error text is passed through verbatim.
 
 **Nothing loads and the button is disabled** — either no key is set (the tooltip says so) or

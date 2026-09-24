@@ -39,7 +39,7 @@ async function parseSitemapUrls(sitemapUrl: string, depth = 0, seen = new Set<st
   seen.add(sitemapUrl);
   try {
     const res = await safeFetch(sitemapUrl, {
-      headers: { "User-Agent": "OpenGSC-Indexer/1.0" },
+      headers: { "User-Agent": "RankTracker Console-Indexer/1.0" },
       timeoutMs: 15_000,
       maxBytes: 10 * 1024 * 1024,
     });

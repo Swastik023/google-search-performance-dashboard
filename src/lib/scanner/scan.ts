@@ -19,7 +19,7 @@ import { detectPlatform, wordpressAssets, type PlatformReport } from "./platform
  * it came from your own crawl or from a scan of somebody else's homepage.
  */
 
-const UA = "Mozilla/5.0 (compatible; OpenGSC-Scanner/1.0; +https://opengsc.org)";
+const UA = "Mozilla/5.0 (compatible; RankTracker Console-Scanner/1.0; +https://ranktracker-console.org)";
 const HTML_BYTES = 3 * 1024 * 1024;
 const PROBE_TIMEOUT = 8_000;
 
@@ -92,7 +92,7 @@ async function fetchText(target: string, maxBytes = 512 * 1024): Promise<{ ok: b
   }
 }
 
-/** Bot tokens OpenGSC reports on elsewhere, so the two screens agree on what "blocked" means. */
+/** Bot tokens RankTracker Console reports on elsewhere, so the two screens agree on what "blocked" means. */
 const AI_BOTS = ["GPTBot", "OAI-SearchBot", "PerplexityBot", "ClaudeBot", "Google-Extended", "CCBot", "Bytespider"];
 
 function blockedBots(robotsTxt: string): string[] {

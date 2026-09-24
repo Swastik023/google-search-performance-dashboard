@@ -2,7 +2,7 @@
 //
 // Why this exists rather than `prisma.upsert()`
 // ---------------------------------------------
-// The obvious way to make OpenGSC portable to another database is to replace its raw upserts
+// The obvious way to make RankTracker Console portable to another database is to replace its raw upserts
 // with Prisma's own `upsert()`, which is dialect-agnostic by construction. That was tried and
 // rejected, because three behaviours in these writes cannot be expressed through it, and losing
 // them would be a silent data-quality regression rather than a visible break:

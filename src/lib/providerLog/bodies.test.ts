@@ -34,7 +34,7 @@ const SECRET = "sk-live-9f3a2b7c8d1e4f5a6b7c";
 const world: { settings: Record<string, Record<string, string>> } = { settings: {} };
 (globalThis as unknown as { __bodies: typeof world }).__bodies = world;
 
-const dir = mkdtempSync(join(tmpdir(), "opengsc-bodies-"));
+const dir = mkdtempSync(join(tmpdir(), "ranktracker-console-bodies-"));
 const stub = (name: string, src: string) => {
   const p = join(dir, name);
   writeFileSync(p, src);

@@ -46,7 +46,7 @@ export interface WorkspaceContext extends Workspace {
  * Named in both files rather than imported from the proxy, which would drag next-auth/middleware
  * into every route bundle. workspaceCallContext.test.ts asserts the two spellings agree.
  */
-export const ROUTE_HEADER = "x-opengsc-route";
+export const ROUTE_HEADER = "x-ranktracker-console-route";
 
 /**
  * What this request is for, as the proxy recorded it — or nothing.

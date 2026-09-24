@@ -98,7 +98,7 @@ test("addTask sends the documented task shape (resultsSaveTo is the enum 'file')
     const r = await aparserAddTask({ baseUrl: "http://127.0.0.1:9091", password: "p" }, { parser: "SE::Google", queries: ["nv casino", " "] });
     assert.equal(r.data, 7);
     assert.equal(body.resultsSaveTo, "file");
-    assert.match(String(body.resultsFileName), /^OpenGSC-SE-Google-\d+\.txt$/);
+    assert.match(String(body.resultsFileName), /^RankTracker Console-SE-Google-\d+\.txt$/);
     assert.equal(body.keepUnique, 1);
     assert.equal(body.queriesFrom, "text");
     assert.deepEqual(body.queryFormat, ["$query"]);
@@ -208,13 +208,13 @@ test("the SERP call sends the project's parser preset, default when blank", asyn
   }) as typeof fetch;
   try {
     const { runSerp } = await import("../seo/serp");
-    await runSerp("aparser", "pw", "nv casino", { gl: "gr", hl: "el", num: 10, baseUrl: "http://127.0.0.1:9091", aparserPreset: "opengsc" });
+    await runSerp("aparser", "pw", "nv casino", { gl: "gr", hl: "el", num: 10, baseUrl: "http://127.0.0.1:9091", aparserPreset: "ranktracker-console" });
     await runSerp("aparser", "pw", "nv casino", { gl: "gr", hl: "el", num: 10, baseUrl: "http://127.0.0.1:9091", aparserPreset: "  " });
   } finally {
     globalThis.fetch = realFetch;
   }
   const presets = sent.filter((b) => b.action === "oneRequest").map((b) => (b.data as Record<string, unknown>).preset);
-  assert.deepEqual(presets.slice(0, 1), ["opengsc"]);
+  assert.deepEqual(presets.slice(0, 1), ["ranktracker-console"]);
   assert.equal(presets[presets.length - 1], "default");
 });
 

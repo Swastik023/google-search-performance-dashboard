@@ -15,7 +15,7 @@ this doc account for nearly every "the check returns an error" report.
 
 ## Read this first: the checks are server-side
 
-OpenGSC calls all three providers **from your server**, not from your browser. Two
+RankTracker Console calls all three providers **from your server**, not from your browser. Two
 consequences for key restrictions:
 
 - **Never restrict these keys by HTTP referrer** (the "Websites" application restriction).
@@ -30,7 +30,7 @@ consequences for key restrictions:
 
 ### What data is sent
 
-When you run a check, OpenGSC sends only the site's domain (as part of a URL) to the
+When you run a check, RankTracker Console sends only the site's domain (as part of a URL) to the
 respective provider, plus your API key for authentication. Nothing else leaves your
 instance. Results are cached in your own database for 24 hours; re-running the check
 overwrites the cache immediately.
@@ -93,7 +93,7 @@ until they enter VirusTotal's corpus — that is normal and not an error on your
 ## Where the keys live
 
 Keys are entered per browser (`healthKey_*` in localStorage) and mirrored to your own
-instance through the settings sync — the same backup every other OpenGSC key uses, so
+instance through the settings sync — the same backup every other RankTracker Console key uses, so
 they survive a cleared browser and are available to your team. When a check runs, the
 server reads the key and calls the provider directly; nothing is sent anywhere except
 the provider itself.

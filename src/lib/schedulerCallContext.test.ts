@@ -70,7 +70,7 @@ world.call = async (endpoint = "https://provider.test/v1/thing") => {
   call.finish({ status: 200 });
 };
 
-const dir = mkdtempSync(join(tmpdir(), "opengsc-sched-"));
+const dir = mkdtempSync(join(tmpdir(), "ranktracker-console-sched-"));
 const stub = (name: string, src: string) => {
   const p = join(dir, name);
   writeFileSync(p, src);

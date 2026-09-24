@@ -1,13 +1,13 @@
 # Changelog
 
-All notable changes to OpenGSC. Dates are release dates; the version shown in
+All notable changes to RankTracker Console. Dates are release dates; the version shown in
 **Settings → System** comes from `package.json`.
 
 ## [Unreleased]
 
 ### Security
 
-- **Google is no longer a public login once the owner has a password** ([#20](https://github.com/fenjo26/OpenGSC/issues/20)). Settings has always said that setting a password turns Google back into a data connection, but the server kept accepting the owner's Google sign-in. It is now refused in the NextAuth `signIn` callback — not just hidden — with `?error=use_password`, so `/api/auth/signin/google` leads nowhere for anyone who is not already signed in as the owner. Connecting and re-authorising Search Console / Analytics accounts from **Settings → Google accounts** works as before. An owner without a password keeps Google as their only way in; `OPENGSC_ALLOW_GOOGLE_LOGIN=true` reopens it after a lost password. The login page asks the new public `/api/auth/login-options` which doors are open: after setup it shows the password form straight away and drops the stale "Google OAuth only — no passwords" copy.
+- **Google is no longer a public login once the owner has a password** ([#20](https://github.com/swastik-agnihotri/RankTracker Console/issues/20)). Settings has always said that setting a password turns Google back into a data connection, but the server kept accepting the owner's Google sign-in. It is now refused in the NextAuth `signIn` callback — not just hidden — with `?error=use_password`, so `/api/auth/signin/google` leads nowhere for anyone who is not already signed in as the owner. Connecting and re-authorising Search Console / Analytics accounts from **Settings → Google accounts** works as before. An owner without a password keeps Google as their only way in; `OPENGSC_ALLOW_GOOGLE_LOGIN=true` reopens it after a lost password. The login page asks the new public `/api/auth/login-options` which doors are open: after setup it shows the password form straight away and drops the stale "Google OAuth only — no passwords" copy.
 - **`OPENGSC_OWNER_EMAIL` restricts who can claim a fresh instance.** Without it the first Google sign-in still becomes the owner; with it, only the listed (verified) addresses can.
 
 ### Fixed
@@ -562,7 +562,7 @@ than this paragraph can. Everything else in the list reads data this instance al
 - **Content Operations**: an editorial queue above the existing generators with approval, review,
   deterministic preflight, an encrypted fine-grained GitHub token, a diff you must confirm, and a
   pull request that is never auto-merged.
-- **Post-deploy outcome**. A merged pull request is not a deployment: OpenGSC fetches the target
+- **Post-deploy outcome**. A merged pull request is not a deployment: RankTracker Console fetches the target
   URL and starts measuring only on a real HTTP 200, then links the page into Indexing and, when a
   keyword is set, into the Rank Tracker. Windows close at 7, 30 and 90 days against a 28-day
   baseline, captured once each from your own Search Console rows, with the reporting lag accounted
@@ -871,7 +871,7 @@ The app now ships in seven languages instead of three. Pick any of them from the
 - Server-side notification templates (alerts and the daily/weekly digest) were translated too, so a French/Spanish/German/Chinese user gets their alerts in their language rather than silently falling back to English.
 - The browser language is auto-detected on first visit for the new locales as well.
 
-Terms that practitioners use in English stay in English across every language — **CTR**, **SEO**, **GSC**, **sitemap**, **canonical**, **Core Web Vitals**, and the like are not translated, because no working SEO specialist says them differently. Brand and product names (Google, Search Console, OpenGSC, Ahrefs, Telegram…) are left untouched.
+Terms that practitioners use in English stay in English across every language — **CTR**, **SEO**, **GSC**, **sitemap**, **canonical**, **Core Web Vitals**, and the like are not translated, because no working SEO specialist says them differently. Brand and product names (Google, Search Console, RankTracker Console, Ahrefs, Telegram…) are left untouched.
 
 ## [1.2.1] — 2026-08-04
 
@@ -974,12 +974,12 @@ The ping is gone. A key is now required, and its absence says so, along with the
 stats calls use, so InvalidApiKey and InvalidSiteUrl come back as themselves.
 
 Unrelated but worth recording, since it prompted the check: Bing is retiring its SOAP and POX
-endpoints on 31 August 2026. OpenGSC is unaffected — all five Bing calls already use
+endpoints on 31 August 2026. RankTracker Console is unaffected — all five Bing calls already use
 `api.svc/json/`.
 
 **MySQL: the provider no longer has to be edited by hand after every update**
 
-Reported in [#2](https://github.com/fenjo26/opengsc/issues/2). Prisma rejects `env()` in the
+Reported in [#2](https://github.com/swastik-agnihotri/ranktracker-console/issues/2). Prisma rejects `env()` in the
 datasource provider, so running on MySQL meant editing `provider = "sqlite"` in
 `prisma/schema.prisma` — a tracked file, which every `git pull` and every `update.sh` run (it
 does `git reset --hard`) quietly reverted. The failure that follows is unhelpful: `prisma
@@ -1018,7 +1018,7 @@ page, which had their own copies of the same logic.
 
 **`npm run build` failed with "adapter-mariadb is not installed" on machines that had it**
 
-Reported in [#2](https://github.com/fenjo26/opengsc/issues/2), where the build claimed the
+Reported in [#2](https://github.com/swastik-agnihotri/ranktracker-console/issues/2), where the build claimed the
 package was missing seconds after `prisma db push` had used it to create the schema.
 
 The adapter's package name is assembled at runtime so a SQLite install — every install today —
@@ -1034,7 +1034,7 @@ claims "not installed" either — it prints the underlying resolver errors, sinc
 wrong in the first case that actually occurred. SQLite installs are unaffected: the MySQL branch
 is still only reached when `DATABASE_URL` names MySQL or MariaDB.
 
-This fixes the *build*. Running OpenGSC on MySQL is still unproven — the schema's provider is
+This fixes the *build*. Running RankTracker Console on MySQL is still unproven — the schema's provider is
 fixed to `sqlite`, and no one has yet run the app against a MySQL server.
 
 **MCP `get_capabilities` reported a stale version**
@@ -1175,7 +1175,7 @@ screen starts from queries the site already appears for, and this one starts fro
 
 - **Competitors moved into SEO Tools** (`/seo-tools/competitors`), next to Demand. Both buy
   data from outside the instance, which is the line SEO Tools draws — everything left in the
-  main nav reads what OpenGSC already holds. Old URLs redirect.
+  main nav reads what RankTracker Console already holds. Old URLs redirect.
 - **Missing tables are now reported instead of looking like missing data.** Every route in the
   metrics layer catches an absent table and returns an empty result so the dashboard survives an
   un-migrated database — but that made "you have not loaded anything yet" and "the table does not
@@ -1251,7 +1251,7 @@ The headline is a new **metrics layer**: search volume, keyword difficulty, back
 and competitor keyword gaps, brought in from Ahrefs/Semrush and — more usefully — crossed with
 your own Search Console data.
 
-Nothing in this release is required. With no key and no imports, OpenGSC behaves exactly as it
+Nothing in this release is required. With no key and no imports, RankTracker Console behaves exactly as it
 did in 1.0: the free Domain Rating on dashboard cards is untouched, and every new column simply
 shows an em dash.
 
@@ -1334,7 +1334,7 @@ git pull
 npm install
 npx prisma db push   # seven new tables
 npm run build
-pm2 restart opengsc
+pm2 restart ranktracker-console
 ```
 
 `prisma db push` is required — the metrics layer adds `KeywordMetricCache`,

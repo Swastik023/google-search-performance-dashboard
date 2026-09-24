@@ -56,16 +56,16 @@ T0 (один, последовательно) ──► T1 T2 T3 T4 T5 T6 (па�
 
 ## Worktree — только из терминала Мака
 
-Все сессии работают в одном клоне `~/Downloads/opengsc`, поэтому `git checkout -b` запрещён —
+Все сессии работают в одном клоне `~/Downloads/ranktracker-console`, поэтому `git checkout -b` запрещён —
 он выдернет ветку из-под соседей. Каждой задаче — свой worktree.
 
 > **Не создавай worktree из песочницы Cowork/VM.** Git записывает в `.git/worktrees/<имя>/`
-> абсолютный путь той машины, где выполнена команда. Из VM это `/sessions/…/mnt/opengsc`,
+> абсолютный путь той машины, где выполнена команда. Из VM это `/sessions/…/mnt/ranktracker-console`,
 > которого на Маке нет, — worktree сломан для Руслана. Проверено 2026-09-15. Команды ниже
 > выполняются в терминале Мака (или агентом, который работает прямо на Маке).
 
 ```bash
-cd ~/Downloads/opengsc
+cd ~/Downloads/ranktracker-console
 
 # T0 — на самой ветке интеграции
 git worktree add .worktrees/serpmon-t0 feat/serp-monitor
@@ -174,7 +174,7 @@ npx tsc -p tsconfig.json --noEmit           # новых ошибок нет
 всего, откажется стартовать, потому что пришлось бы удалить таблицы. Поэтому тест — на копии.
 
 ```bash
-cd ~/Downloads/opengsc/.worktrees/serpmon-t0          # worktree ветки интеграции
+cd ~/Downloads/ranktracker-console/.worktrees/serpmon-t0          # worktree ветки интеграции
 cp ../../.env .                                        # .env в git не лежит
 cp ../../dev.db ./serpmon-test.db
 DATABASE_URL="file:./serpmon-test.db" npx prisma db push

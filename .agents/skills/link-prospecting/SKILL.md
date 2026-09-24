@@ -1,9 +1,9 @@
 ---
 name: link-prospecting
-description: "Find link-building and digital-PR opportunities via the OpenGSC MCP: mine competitor backlink mentions (Link Monitor), spot multi-linker domains, and check the site's own backlink health."
+description: "Find link-building and digital-PR opportunities via the RankTracker Console MCP: mine competitor backlink mentions (Link Monitor), spot multi-linker domains, and check the site's own backlink health."
 ---
 
-# OpenGSC Link Prospecting
+# RankTracker Console Link Prospecting
 
 ## Goal
 
@@ -13,7 +13,7 @@ Produce a concrete outreach shortlist: which domains to contact, why they're lik
 
 - Optional: a specific watched brand to focus on, and the user's own site for the backlink-health check.
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `get_link_mentions`: fresh quality backlinks earned by the watched competitor brands + `multiLinkerDomains` (domains linking to 2+ brands — the highest-probability outreach targets). This is the core tool.
 - `get_backlinks`: the user's OWN curated backlink inventory with liveness/indexed status — use to spot dead links worth reclaiming.

@@ -1,9 +1,9 @@
 ---
 name: seo-production
-description: "Produce a new article end to end through the OpenGSC MCP: demand evidence, an approved outline, a claim ledger, the draft, deterministic verification, and a package ready for Content Operations. For refreshing an existing page use page-optimization instead."
+description: "Produce a new article end to end through the RankTracker Console MCP: demand evidence, an approved outline, a claim ledger, the draft, deterministic verification, and a package ready for Content Operations. For refreshing an existing page use page-optimization instead."
 ---
 
-# OpenGSC SEO Production
+# RankTracker Console SEO Production
 
 ## Goal
 
@@ -19,7 +19,7 @@ something new.
 - The site. Call `list_sites` if the user has not named one.
 - A topic, a seed keyword, or a target page. Anything vaguer than that, ask.
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `get_keyword_demand`: **start here.** Research already stored, joined against the site's own GSC
   positions, each row verdicted `reach` / `wrong_page` / `none`. Free.

@@ -1,11 +1,11 @@
 # Per-request provider call log — design
 
 Status: design approved, not yet implemented. Branch `provider-log`. Implements issue
-`fenjo26/OpenGSC#9`.
+`swastik-agnihotri/RankTracker Console#9`.
 
 ## The gap
 
-OpenGSC bills real money to a dozen providers and keeps almost no record of it.
+RankTracker Console bills real money to a dozen providers and keeps almost no record of it.
 
 `ApiUsage` (`prisma/schema.prisma:1391`) is a monthly aggregate keyed
 `(userId, provider, month)` holding `units` and `requests`. Exactly one writer touches it —

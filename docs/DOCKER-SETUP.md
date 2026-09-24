@@ -16,8 +16,8 @@ process management differs (Docker instead of PM2/Nginx).
 ## Quickstart
 
 ```bash
-git clone https://github.com/fenjo26/opengsc.git
-cd opengsc
+git clone https://github.com/swastik-agnihotri/ranktracker-console.git
+cd ranktracker-console
 
 cp .env.template .env
 nano .env         # set NEXTAUTH_SECRET, NEXTAUTH_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET
@@ -30,7 +30,7 @@ Open `http://localhost:3000` (or whatever `NEXTAUTH_URL` you configured) and sig
 Notes:
 
 - `DATABASE_URL` in `.env` is ignored — inside the container the SQLite file always lives at
-  `/data/prod.db` on the `opengsc-data` named volume, so it survives rebuilds and updates.
+  `/data/prod.db` on the `ranktracker-console-data` named volume, so it survives rebuilds and updates.
 - The container runs `prisma db push` on every start, which applies schema changes
   automatically after updates.
 - `PORT=8080 docker compose up -d` changes the host port.
@@ -61,13 +61,13 @@ Cloud Console (`https://your-domain.com/api/auth/callback/google`), including th
 Everything lives in one SQLite file on the volume:
 
 ```bash
-docker compose cp opengsc:/data/prod.db ./backup-$(date +%F).db
+docker compose cp ranktracker-console:/data/prod.db ./backup-$(date +%F).db
 ```
 
 ## Troubleshooting
 
 - **`redirect_uri_mismatch`** — `NEXTAUTH_URL` doesn't match the redirect URI in Google Console
   (see the main [README troubleshooting](../README.md#troubleshooting)).
-- **Container restarts in a loop** — `docker compose logs opengsc`; the most common cause is a
+- **Container restarts in a loop** — `docker compose logs ranktracker-console`; the most common cause is a
   malformed `.env` (quotes/spaces around values are fine, missing `NEXTAUTH_SECRET` is not).
-- **Where is my data?** — `docker volume inspect opengsc_opengsc-data` shows the host path.
+- **Where is my data?** — `docker volume inspect ranktracker-console_ranktracker-console-data` shows the host path.

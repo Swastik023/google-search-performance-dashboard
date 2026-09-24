@@ -1,9 +1,9 @@
 ---
 name: drops-research
-description: "Research expired/dropped domains through the OpenGSC MCP: import a list, run the free funnel (DNS pre-filter → registry check), enrich with DR/Wayback, and vet the shortlist with AI history verdicts before anyone spends money or units."
+description: "Research expired/dropped domains through the RankTracker Console MCP: import a list, run the free funnel (DNS pre-filter → registry check), enrich with DR/Wayback, and vet the shortlist with AI history verdicts before anyone spends money or units."
 ---
 
-# OpenGSC Drops Research
+# RankTracker Console Drops Research
 
 ## Goal
 
@@ -13,7 +13,7 @@ Turn a raw list of (possibly dropped) domains into a ranked, vetted shortlist: a
 
 - A domain list (pasted text, CSV, or a donor's refdomains). If none given, ask — the funnel is useless without candidates.
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `drops_ingest`: import the list as a run. Rows are normalised (URLs/`www.` hosts/IPs handled, everything reduced to its registrable apex); the report says what was rejected and why.
 - `drops_prefilter`: one bounded slice of DNS resolution. Retires every delegated (alive) domain for free — usually ~90% of the list. **Run this before anything else**; loop while `remaining > 0` and `done: false`.

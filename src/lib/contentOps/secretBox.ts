@@ -4,7 +4,7 @@ import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:
 function key(): Buffer {
   const secret = process.env.CONTENT_OPS_SECRET || process.env.NEXTAUTH_SECRET;
   if (!secret || secret.length < 24) throw new Error("content_ops_secret_missing");
-  return createHash("sha256").update(`opengsc-content-ops:${secret}`).digest();
+  return createHash("sha256").update(`ranktracker-console-content-ops:${secret}`).digest();
 }
 /** Encrypt a GitHub token before it reaches the database. */
 export function sealSecret(value: string): string {

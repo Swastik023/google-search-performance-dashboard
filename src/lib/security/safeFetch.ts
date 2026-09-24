@@ -114,7 +114,7 @@ const DEFAULT_MAX_REDIRECTS = 5;
  * requests went from systematic refusals to normal answers on nothing but this header.
  * Identifiable-bot UAs get the polite treatment; callers may still override it.
  */
-export const DEFAULT_USER_AGENT = "Mozilla/5.0 (compatible; OpenGSC; +https://seogets.net.ru)";
+export const DEFAULT_USER_AGENT = "Mozilla/5.0 (compatible; RankTracker Console; +https://seogets.net.ru)";
 
 function ipv4Number(value: string): number | null {
   const parts = value.split(".");

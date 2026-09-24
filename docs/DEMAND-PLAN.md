@@ -1,7 +1,7 @@
 # Demand — план новой вкладки
 
 Рабочий документ по интеграции идей из [every-app/open-seo](https://github.com/every-app/open-seo)
-(MIT, 7.5k звёзд) в OpenGSC. Не спецификация к исполнению — разбор того, что там есть,
+(MIT, 7.5k звёзд) в RankTracker Console. Не спецификация к исполнению — разбор того, что там есть,
 чего нет у нас, и как это ложится на существующую архитектуру.
 
 ---
@@ -15,7 +15,7 @@ domain overview, backlinks, AI-видимость — всё это вызовы
 
 Стек несовместим с нашим по всем осям:
 
-| | OpenSEO | OpenGSC |
+| | OpenSEO | RankTracker Console |
 |---|---|---|
 | Рантайм | Cloudflare Workers (wrangler, alchemy) | Node под PM2 на VPS |
 | Сборка | Vite + TanStack Router | Next.js 16 App Router |

@@ -34,7 +34,7 @@ test("a sanitised value never contains a path, query, fragment or authority sepa
 // database, the same trick prisma.test.ts uses — DATABASE_URL must be set before ./store
 // (→ ./prisma) is imported, hence the dynamic imports inside the test.
 test("phantom verdicts are not counted, real rows are", async () => {
-  const dir = mkdtempSync(join(tmpdir(), "opengsc-drops-avail-"));
+  const dir = mkdtempSync(join(tmpdir(), "ranktracker-console-drops-avail-"));
   process.env.DATABASE_URL = `file:${join(dir, "scratch.db")}`;
   const { prisma } = await import("../prisma");
   const { recordAvailabilityResults } = await import("./store");

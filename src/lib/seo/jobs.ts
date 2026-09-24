@@ -74,7 +74,7 @@ function safeParse(s?: string | null): any { if (!s) return undefined; try { ret
 //
 // The History page imports every completed job it finds, so anything NOT listed here is
 // left alone deliberately. `rewrite` batches are started over MCP by an agent that polls
-// the server row for its results — if an open OpenGSC tab imported one, it would file it
+// the server row for its results — if an open RankTracker Console tab imported one, it would file it
 // under a type History cannot render AND delete the server copy, so the agent's next poll
 // would report the job missing and pages the user had already paid for would be gone.
 // A job whose owner is not this browser is not this browser's to collect.

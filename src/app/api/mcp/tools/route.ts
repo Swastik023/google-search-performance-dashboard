@@ -57,7 +57,7 @@ export async function GET(req: Request) {
   if (!userId) {
     return NextResponse.json({
       error: "unauthorized",
-      message: "Pass your MCP token as 'Authorization: Bearer ogsc_…', or open this while signed in. Generate a token in OpenGSC → Settings → API & MCP.",
+      message: "Pass your MCP token as 'Authorization: Bearer ogsc_…', or open this while signed in. Generate a token in RankTracker Console → Settings → API & MCP.",
     }, { status: 401 });
   }
 

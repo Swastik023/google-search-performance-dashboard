@@ -11,7 +11,7 @@ costs all ten.
 1. Connect A-Parser in **Settings → API Keys** (or `OPENGSC_APARSER_BASE_URL` /
    `OPENGSC_APARSER_PASSWORD`). The instance needs `SE::Google::Position` and proxies that
    Google accepts. The **SERP Monitor** probe is a good way to check those proxies.
-2. Run the probe on the server, from the OpenGSC directory:
+2. Run the probe on the server, from the RankTracker Console directory:
 
    ```
    npx tsx scripts/aparser-position-probe.ts your-site.com "a keyword you rank for" gr el

@@ -2,7 +2,7 @@
 //
 // Proposed in issue #4 by the vendor. Nine GET endpoints, one target per call, no batching and
 // no pagination, `Authorization: Bearer`, everything wrapped in `{code, message, data}`. Five of
-// them map onto something OpenGSC already does or visibly lacks; the rest are deliberately not
+// them map onto something RankTracker Console already does or visibly lacks; the rest are deliberately not
 // here, and the reasons are worth keeping next to the code rather than in a closed issue:
 //
 //   • keyword-generator returns BUCKETS, not numbers — `volumeLabel: "MoreThanHundredThousand"`,
@@ -254,7 +254,7 @@ export interface TrafficKeyword { keyword: string; volume: number | null; cpc: n
 /**
  * Channel shares, summing to ~1.
  *
- * `genAI` is the reason this endpoint is worth wiring at all. OpenGSC already tracks whether a
+ * `genAI` is the reason this endpoint is worth wiring at all. RankTracker Console already tracks whether a
  * site is cited in AI answers (the AEO module) and has never been able to say whether that
  * visibility turns into sessions. This is the other half of that sentence.
  */

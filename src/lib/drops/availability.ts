@@ -24,7 +24,7 @@ import type { AvailabilityResult, RegistrarConfirmer } from "./types";
 
 const RDAP_TIMEOUT_MS = 12_000;
 const RDAP_MAX_BYTES = 512 * 1024;
-const USER_AGENT = "OpenGSC-Drops/1.0 (+https://github.com/fenjo26/OpenGSC)";
+const USER_AGENT = "RankTracker Console-Drops/1.0 (+https://github.com/swastik-agnihotri/RankTracker Console)";
 
 /**
  * Re-exported from `registries.ts`, where it now lives.

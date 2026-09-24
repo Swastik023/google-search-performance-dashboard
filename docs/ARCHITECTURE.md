@@ -1,6 +1,6 @@
 # Architecture
 
-This document explains how OpenGSC is put together: the runtime model, the data model, and the
+This document explains how RankTracker Console is put together: the runtime model, the data model, and the
 internal design of its two most complex subsystems — the AI SEO Content Suite's generation
 pipeline and the Private Indexer Network's cloaking mechanism. It's aimed at contributors who
 want to change or extend the code, not at end users (see the main [README](../README.md) for
@@ -8,7 +8,7 @@ that).
 
 ## 1. Runtime model
 
-OpenGSC is a single Next.js 16 (App Router) application, run as one Node process under PM2. There
+RankTracker Console is a single Next.js 16 (App Router) application, run as one Node process under PM2. There
 is no separate backend service: every server-side operation is a Next.js **Route Handler** under
 `src/app/api/**`, and every page under `src/app/**` is a client component that calls those routes.
 Persistence is a single **SQLite** file (via Prisma 7 + `@prisma/adapter-better-sqlite3`), which is
@@ -508,7 +508,7 @@ to.
 
 ## 6. MCP server (`src/app/api/mcp/route.ts`)
 
-OpenGSC speaks MCP (Model Context Protocol) over the **Streamable HTTP** transport in
+RankTracker Console speaks MCP (Model Context Protocol) over the **Streamable HTTP** transport in
 stateless mode: every JSON-RPC message arrives as a POST and is answered with a plain JSON
 body (the spec allows this in place of an SSE stream), so the endpoint needs no session
 state and survives process restarts trivially. Authentication is a per-user bearer token
@@ -573,7 +573,7 @@ The `paid` tier is a deliberate relaxation of what this section previously promi
 `start_generation_job`. They exist because the web UI can do things an agent cannot
 reproduce — the outline pipeline's MAP/REDUCE fact grounding, Casino RAG, fact-scrub, the
 user's editorial policy and banned-word list — and withholding them made the MCP a strictly
-worse OpenGSC than the browser tab next to it. Three things keep the relaxation honest:
+worse RankTracker Console than the browser tab next to it. Three things keep the relaxation honest:
 
 - **`assertConfirmed()`** (`shared.ts`) refuses to run either tool without an explicit
   `confirm: true`, and the refusal text tells the agent to ask the human rather than retry
@@ -618,7 +618,7 @@ Two ordering hazards around the staleness sweep, both fixed here:
 - **A rewrite job is not the browser's to collect.** The History page imports every completed
   `SeoJob` into `localStorage` and then *deletes the server row* (`importJob`,
   `src/lib/seo/jobs.ts`). A rewrite batch is owned by the agent that started it and polled
-  from the server, so an open OpenGSC tab would have filed it under a type History cannot
+  from the server, so an open RankTracker Console tab would have filed it under a type History cannot
   render and destroyed the agent's results — pages the user had already paid for. `importJob`
   now imports only the types History owns (`IMPORTABLE_TYPES`) and leaves the rest alone.
 

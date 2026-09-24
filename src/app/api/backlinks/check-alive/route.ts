@@ -23,7 +23,7 @@ import { safeFetch } from '@/lib/security/safeFetch';
 //      remove. "blocked" is not a death — it is a refusal to answer — so it is kept separate
 //      from both and shown amber in the UI.
 
-const UA = 'Mozilla/5.0 (compatible; OpenGSC-BacklinkCheck/1.0)';
+const UA = 'Mozilla/5.0 (compatible; RankTracker Console-BacklinkCheck/1.0)';
 const ATTEMPTS = 3;
 const BACKOFF_MS = [0, 1_200, 3_500]; // mirrors the LLM client's "shorter for cheap checks" intent
 

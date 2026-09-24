@@ -1,9 +1,9 @@
 ---
 name: site-triage
-description: "Quick technical & indexing triage of a site via the OpenGSC MCP: health checks (SSL, Safe Browsing, Core Web Vitals), Google index coverage, and what to fix first."
+description: "Quick technical & indexing triage of a site via the RankTracker Console MCP: health checks (SSL, Safe Browsing, Core Web Vitals), Google index coverage, and what to fix first."
 ---
 
-# OpenGSC Site Triage
+# RankTracker Console Site Triage
 
 ## Goal
 
@@ -13,7 +13,7 @@ A fast "is anything on fire?" pass over one site: security/health status, index 
 
 - The site (domain). Call `list_sites` if unknown.
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `get_alerts`: what the app's own hourly alert-cron already fired — rank drops, week-over-week click drops, SSL expiry, low audit scores. Deduplicated per occurrence, so it is an incident list rather than a notification stream. **Call this first:** it is the instance's own record of what went wrong and when.
 - `get_site_health`: SSL expiry/grade, Google Safe Browsing verdict, VirusTotal reputation, Core Web Vitals (mobile).
@@ -39,6 +39,6 @@ Traffic-light summary (🔴 critical / 🟡 attention / 🟢 fine) per area — 
 
 ## Guardrails
 
-- "No health data" means the check hasn't been run in OpenGSC — say so, don't guess.
+- "No health data" means the check hasn't been run in RankTracker Console — say so, don't guess.
 - Sitemap URLs never inspected are unknown, not deindexed.
 - Core Web Vitals here are mobile lab/field data as fetched by the app; do not present them as a full CWV audit.

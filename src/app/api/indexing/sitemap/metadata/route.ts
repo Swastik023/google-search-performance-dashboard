@@ -49,7 +49,7 @@ export async function POST(req: Request) {
           timeoutMs: 20_000,
           maxBytes: 2 * 1024 * 1024,
           headers: {
-            "User-Agent": "Mozilla/5.0 (compatible; OpenGSC-Sitemap/1.0; +https://opengsc.org)",
+            "User-Agent": "Mozilla/5.0 (compatible; RankTracker Console-Sitemap/1.0; +https://ranktracker-console.org)",
             Accept: "text/html,application/xhtml+xml,text/plain;q=0.5,*/*;q=0.1",
           },
         });

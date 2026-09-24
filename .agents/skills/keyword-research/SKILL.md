@@ -1,9 +1,9 @@
 ---
 name: keyword-research
-description: "Turn a seed topic into a prioritized keyword plan via the OpenGSC MCP: start from the demand you already have in Search Console, discover the market around it, and separate the terms worth a rewrite from the ones worth a new page."
+description: "Turn a seed topic into a prioritized keyword plan via the RankTracker Console MCP: start from the demand you already have in Search Console, discover the market around it, and separate the terms worth a rewrite from the ones worth a new page."
 ---
 
-# OpenGSC Keyword Research
+# RankTracker Console Keyword Research
 
 ## Goal
 
@@ -33,7 +33,7 @@ An agent that opens with the paid tool has skipped three sources of the same inf
 If the market would materially change the numbers and the user has not said, ask. A German
 market research run against `us` is not a smaller answer, it is a wrong one.
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `get_striking_distance`: queries at positions 4–20 with real impressions. This is demand the
   site has already proven it can reach — it outranks anything discovery returns.

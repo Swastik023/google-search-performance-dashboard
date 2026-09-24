@@ -1,4 +1,4 @@
-# OpenGSC release checklist
+# RankTracker Console release checklist
 
 Use this checklist for every public release. `package.json` is the source of the displayed app
 version; README badges, CHANGELOG, Settings and MCP must agree with it.
@@ -15,7 +15,7 @@ version; README badges, CHANGELOG, Settings and MCP must agree with it.
 9. Review `git status` before committing and never stage a database. `dev.db` and `prisma/dev.db`
    are tracked for historical reasons and a local one usually carries real data; `data/` and the
    updater's `backups/` are ignored on purpose. Stage explicit paths, not `git add -A`.
-10. Update `docs/SITE-COPY-1.4.0.md` (or its successor) and apply it to opengsc.org, so the public
+10. Update `docs/SITE-COPY-1.4.0.md` (or its successor) and apply it to ranktracker-console.org, so the public
     site and the repository describe the same product.
 
 ## Deferred: untracking `dev.db`

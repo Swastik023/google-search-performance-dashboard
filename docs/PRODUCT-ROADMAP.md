@@ -1,4 +1,4 @@
-# OpenGSC — продуктовый roadmap и план интеграции OSS-идей
+# RankTracker Console — продуктовый roadmap и план интеграции OSS-идей
 
 > Статус документа: рабочий план, 12 августа 2026 года. Он описывает порядок работ и
 > критерии готовности. Фактический прогресс итераций отмечен ниже.
@@ -43,23 +43,23 @@ URL и основных форматов API:
   выключена, публичный Free SEO Checker игнорирует её всегда.
 - Бэкап SQLite до `git reset --hard` в `update.sh` и защита локальных баз в `.gitignore`.
 
-Остаётся отдельным этапом обновление внешнего сайта `opengsc.org` и первый корректный
+Остаётся отдельным этапом обновление внешнего сайта `ranktracker-console.org` и первый корректный
 Git tag/GitHub Release. Они не маскируются как готовые функции.
 
 ## 1. Цель
 
-Следующий цикл развития OpenGSC должен не увеличивать количество разрозненных SEO-инструментов,
+Следующий цикл развития RankTracker Console должен не увеличивать количество разрозненных SEO-инструментов,
 а замыкать уже имеющиеся данные и действия в проверяемые рабочие процессы:
 
 1. нашли проблему или возможность;
 2. показали доказательства и ожидаемый эффект;
 3. пользователь одобрил действие;
-4. OpenGSC помог выполнить работу;
+4. RankTracker Console помог выполнить работу;
 5. результат перепроверен по crawl, GSC, индексации и позициям.
 
 Главный продуктовый результат — переход от «панели с большим количеством данных» к системе,
 которая ведёт SEO-задачу от обнаружения до доказанного результата. При этом сохраняются ключевые
-свойства OpenGSC: self-hosted, SQLite-first, один Node-процесс, необязательные внешние API,
+свойства RankTracker Console: self-hosted, SQLite-first, один Node-процесс, необязательные внешние API,
 явная цена до платного запроса и отсутствие скрытых расходов.
 
 ## 2. Что уже есть и что нельзя дублировать
@@ -84,7 +84,7 @@ Git tag/GitHub Release. Они не маскируются как готовые
 
 ### 3.1 Единый UI и CSS
 
-Все новые экраны обязаны выглядеть частью OpenGSC:
+Все новые экраны обязаны выглядеть частью RankTracker Console:
 
 - использовать токены из `src/app/globals.css`: `var(--color-*)`, `var(--radius-*)`,
   `var(--shadow-*)`, `var(--page-*)`;
@@ -141,7 +141,7 @@ Git tag/GitHub Release. Они не маскируются как готовые
 - Проекты без лицензии используются только для понимания задачи и независимой реализации.
 - Непрозрачные EXE/DLL/BAT/CMD-архивы из `guest-post-backlinks-tool` и `sitemap-harvester`
   не запускаются, не распаковываются в приложение и не поставляются пользователям.
-- Любой переносимый алгоритм получает тесты на собственных fixtures OpenGSC.
+- Любой переносимый алгоритм получает тесты на собственных fixtures RankTracker Console.
 
 ## 4. Карта приоритетов
 
@@ -202,7 +202,7 @@ Git tag/GitHub Release. Они не маскируются как готовые
 **Найдено**
 
 README уже честно описывает reseller API и Private Indexer, но публичный
-`opengsc.org/disclaimer/` остаётся общим: Google affiliation, API quota, безопасность и
+`ranktracker-console.org/disclaimer/` остаётся общим: Google affiliation, API quota, безопасность и
 отсутствие профессионального совета. На публичной странице нет явного описания doorway pages,
 UA/DNS cloaking, риска penalties/deindexing, referral/reseller API и возможного нарушения
 условий Ahrefs/Semrush.
@@ -288,7 +288,7 @@ MCP tokens и миграции текущего `userId`-scoping.
 ### 5.5 Общий безопасный outbound fetch
 
 Идея основана на MIT-подходах LLMScout, EchoSEO и site-health-check, но реализуется как общий
-OpenGSC-модуль.
+RankTracker Console-модуль.
 
 **Что сделать**
 
@@ -452,7 +452,7 @@ DispatchSEO. Сторонний код не используется.
 
 **Почему это нужно**
 
-Link Monitor и `link-prospecting` skill уже находят multi-linker domains, но OpenGSC теряет
+Link Monitor и `link-prospecting` skill уже находят multi-linker domains, но RankTracker Console теряет
 prospect после выдачи списка. Нет памяти о контакте, follow-up и полученной ссылке.
 
 **Что сделать**
@@ -553,7 +553,7 @@ Clicks/impressions помогают выбрать более сильную с�
 ## 8. Этап 3 — Content Operations и публикация через PR
 
 **Источник идеи:** DispatchSEO. Из-за AGPL переносится только продуктовая концепция;
-реализация создаётся независимо на существующих примитивах OpenGSC.
+реализация создаётся независимо на существующих примитивах RankTracker Console.
 
 > Реализован безопасный MVP: самостоятельная очередь в SEO Tools, импорт готового текста из
 > `SeoHistory`, закрытые переходы состояний, audit timeline, server-only AES-GCM storage токена,
@@ -570,7 +570,7 @@ Clicks/impressions помогают выбрать более сильную с�
 4. Deterministic gates проверяют fact drift, keyword coverage, heading drift и sameness.
 5. GitHub integration создаёт branch и PR, но не push в main.
 6. Пользователь вручную merge через GitHub.
-7. OpenGSC ждёт реальный HTTP 200 после deployment.
+7. RankTracker Console ждёт реальный HTTP 200 после deployment.
 8. URL отправляется в indexing workflow и keyword — в Rank Tracker.
 9. Через 7/30/90 дней карточка показывает GSC/rank outcome относительно baseline.
 
@@ -597,7 +597,7 @@ Content Ops получает собственную поверхность то�
 **Что даст**
 
 - соединит уже написанные модули в уникальный end-to-end продукт;
-- уменьшит ручное копирование текста между OpenGSC, редактором и GitHub;
+- уменьшит ручное копирование текста между RankTracker Console, редактором и GitHub;
 - позволит измерять не количество сгенерированных статей, а опубликованный и ранжируемый результат.
 
 **Готово, когда**
@@ -619,7 +619,7 @@ Content Ops получает собственную поверхность то�
 
 ### 9.1 Цель
 
-Показать ценность OpenGSC до установки: пользователь вводит домен, получает ограниченный
+Показать ценность RankTracker Console до установки: пользователь вводит домен, получает ограниченный
 внешний аудит и видит, что полный продукт умеет хранить историю, данные GSC и verification.
 
 ### 9.2 Состав
@@ -640,7 +640,7 @@ Expert report после явного consent/email, если этот кана�
 - расширенные facts и evidence;
 - crawl нескольких страниц с жёстким лимитом;
 - shareable snapshot;
-- CTA установить OpenGSC и подключить GSC для исторических данных.
+- CTA установить RankTracker Console и подключить GSC для исторических данных.
 
 ### 9.3 Ограничения
 
@@ -654,7 +654,7 @@ Expert report после явного consent/email, если этот кана�
 
 **Что даст**
 
-- работающий product demo на `opengsc.org`;
+- работающий product demo на `ranktracker-console.org`;
 - органическую и referral-воронку;
 - повторное использование audit engine вместо отдельного маркетингового прототипа.
 
@@ -679,7 +679,7 @@ Expert report после явного consent/email, если этот кана�
 
 - повторяемый процесс для Codex/Claude/Cursor;
 - меньше галлюцинаций и механического «AI-текста»;
-- skill использует факты и инструменты OpenGSC, а не дублирует их prompt-ом.
+- skill использует факты и инструменты RankTracker Console, а не дублирует их prompt-ом.
 
 ## 11. Отдельный Source Audit и то, что остаётся отложенным
 
@@ -713,7 +713,7 @@ Components. Findings ведут в конкретный GitHub-файл/стро
 
 ### bisibility как отдельный сервис
 
-Не подключать PostgreSQL + Valkey + Temporal ради функций, которые OpenGSC уже имеет. Изучать
+Не подключать PostgreSQL + Valkey + Temporal ради функций, которые RankTracker Console уже имеет. Изучать
 как reference для provider adapters, SERP snapshots, cost ledger, webhooks, team roles и deploy
 timeline. Код AGPL не переносить.
 
@@ -748,7 +748,7 @@ timeline. Код AGPL не переносить.
 4. Baseline snapshots и comparison service.
 5. Re-crawl to verify UI + MCP.
 
-Результат: OpenGSC не только находит проблему, но доказывает исправление и показывает регрессии.
+Результат: RankTracker Console не только находит проблему, но доказывает исправление и показывает регрессии.
 
 ### Milestone C — Growth Workspace
 
@@ -823,7 +823,7 @@ timeline. Код AGPL не переносить.
 | EchoSEO | Взять MIT-подход audit verification, snapshots и public checker; адаптировать к Prisma/SQLite |
 | LLMScout | Взять недостающие MIT-checks и идеи hardened fetch; не подключать отдельный CLI |
 | site-health-check | Взять public/expert packaging, `na` semantics и понятные action texts |
-| Awesome SEO Writing Skill | Адаптировать workflow в OpenGSC agent skill с attribution |
+| Awesome SEO Writing Skill | Адаптировать workflow в RankTracker Console agent skill с attribution |
 | DispatchSEO | Независимо реализовать queue/approval/PR/outcome; AGPL-код не копировать |
 | bisibility | Только архитектурный reference; не добавлять второй backend stack |
 | svelte-vitals | Взята только идея rule/reporter architecture; Source Audit реализован независимо под Next.js, Svelte rules/код не переносились |

@@ -128,7 +128,7 @@ export function rememberSyncedAt(when: Date): void {
     localStorage.setItem(KEY, when.toISOString());
   } catch (err) {
     console.warn(
-      "[opengsc] could not cache the last-sync time in localStorage — the label will fall back " +
+      "[ranktracker-console] could not cache the last-sync time in localStorage — the label will fall back " +
       "to the server's own record. Storage is most likely full.",
       err,
     );

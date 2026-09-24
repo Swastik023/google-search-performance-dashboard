@@ -1,7 +1,7 @@
-# Verifying an OpenGSC install on MySQL / MariaDB
+# Verifying an RankTracker Console install on MySQL / MariaDB
 
 > **Experimental and unsupported.** SQLite is the only fully supported production database for
-> OpenGSC. This document helps contributors investigate a future MySQL/MariaDB port; passing these
+> RankTracker Console. This document helps contributors investigate a future MySQL/MariaDB port; passing these
 > checks does not imply feature parity. Raw MCP SQL, timestamp coercion, composite-key limits and
 > several hand-written SQL paths still need dialect-specific work. Do not migrate a production
 > instance away from SQLite without a tested backup and rollback plan.
@@ -39,7 +39,7 @@ On Windows, same command in PowerShell. Inside Docker it has to run in the conta
 already has the connection string in its environment:
 
 ```bash
-docker compose exec opengsc npx tsx scripts/verify-upsert-live.ts
+docker compose exec ranktracker-console npx tsx scripts/verify-upsert-live.ts
 ```
 
 If `tsx` is missing, the install skipped dev dependencies: `npm install --include=dev`.
@@ -59,7 +59,7 @@ $env:DATABASE_URL='mysql://user:pass@host:3306/db'; npx tsx scripts/verify-upser
 ```
 
 It then runs all three behaviours against your server and prints PASS/FAIL per assertion. It writes rows under reserved keys
-(`keyword = __opengsc_selftest__`, `provider = __selftest__`) and deletes them again on the way
+(`keyword = __ranktracker-console_selftest__`, `provider = __selftest__`) and deletes them again on the way
 out, on success and on failure. Your data is not touched.
 
 Exit code 0 means all three behaviours work on your database. A stack trace instead of PASS/FAIL
@@ -90,9 +90,9 @@ Create them like this.
 PowerShell:
 
 ```powershell
-"Keyword,Volume,KD`nopengsc mysql test,1000,42" | Set-Content -Encoding utf8 full.csv
-"Keyword,Volume`nopengsc mysql test,1200"       | Set-Content -Encoding utf8 partial.csv
-"Keyword,Volume,KD`nopengsc mysql test,7,7"     | Set-Content -Encoding utf8 stale.csv
+"Keyword,Volume,KD`nranktracker-console mysql test,1000,42" | Set-Content -Encoding utf8 full.csv
+"Keyword,Volume`nranktracker-console mysql test,1200"       | Set-Content -Encoding utf8 partial.csv
+"Keyword,Volume,KD`nranktracker-console mysql test,7,7"     | Set-Content -Encoding utf8 stale.csv
 
 (Get-Item full.csv).LastWriteTime    = (Get-Date).AddDays(-2)
 (Get-Item partial.csv).LastWriteTime = (Get-Date).AddDays(-1)
@@ -102,9 +102,9 @@ PowerShell:
 bash:
 
 ```bash
-printf 'Keyword,Volume,KD\nopengsc mysql test,1000,42\n' > full.csv
-printf 'Keyword,Volume\nopengsc mysql test,1200\n'       > partial.csv
-printf 'Keyword,Volume,KD\nopengsc mysql test,7,7\n'     > stale.csv
+printf 'Keyword,Volume,KD\nranktracker-console mysql test,1000,42\n' > full.csv
+printf 'Keyword,Volume\nranktracker-console mysql test,1200\n'       > partial.csv
+printf 'Keyword,Volume,KD\nranktracker-console mysql test,7,7\n'     > stale.csv
 
 touch -d '2 days ago'  full.csv
 touch -d '1 day ago'   partial.csv
@@ -126,7 +126,7 @@ After each import, read the row back — the app has no screen that shows a sing
 ```sql
 SELECT volume, difficulty, source, checkedAt
   FROM KeywordMetricCache
- WHERE keyword = 'opengsc mysql test';
+ WHERE keyword = 'ranktracker-console mysql test';
 ```
 
 | after            | volume   | difficulty       | why                                        |
@@ -138,7 +138,7 @@ SELECT volume, difficulty, source, checkedAt
 If difficulty becomes `NULL` after the second import, `keep` is wrong. If volume becomes `7` after
 the third, the freshness guard is wrong — most likely the assignment-order trap above.
 
-Clean up with `DELETE FROM KeywordMetricCache WHERE keyword = 'opengsc mysql test';`
+Clean up with `DELETE FROM KeywordMetricCache WHERE keyword = 'ranktracker-console mysql test';`
 
 ### B3: counters accumulate
 

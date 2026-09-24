@@ -30,7 +30,7 @@ export async function getAlgoUpdates(): Promise<{ updates: AlgoUpdate[]; source:
 
   try {
     const res = await fetch(FEED, {
-      headers: { Accept: "application/json", "User-Agent": "OpenGSC" },
+      headers: { Accept: "application/json", "User-Agent": "RankTracker Console" },
       signal: AbortSignal.timeout(10_000),
     });
     if (!res.ok) throw new Error(`status ${res.status}`);

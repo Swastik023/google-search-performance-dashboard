@@ -59,7 +59,7 @@ export async function verifyLiveUrl(targetUrl: string): Promise<LiveCheck> {
       redirect: "follow",
       timeoutMs: 15_000,
       maxBytes: 512 * 1024,
-      headers: { "User-Agent": "OpenGSC-ContentOps/1.0" },
+      headers: { "User-Agent": "RankTracker Console-ContentOps/1.0" },
     });
     return { ok: response.status === 200, status: response.status, error: response.status === 200 ? null : "unexpected_status" };
   } catch (error) {

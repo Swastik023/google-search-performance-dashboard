@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     if (!webhook) return NextResponse.json({ error: "no_webhook" }, { status: 400 });
 
     if (action === "test") {
-      const r = await sendSlack(webhook, "✅ OpenGSC: Slack connected. Alerts and digests will arrive here.");
+      const r = await sendSlack(webhook, "✅ RankTracker Console: Slack connected. Alerts and digests will arrive here.");
       return r.ok ? NextResponse.json({ ok: true }) : NextResponse.json({ error: r.error }, { status: 502 });
     }
 

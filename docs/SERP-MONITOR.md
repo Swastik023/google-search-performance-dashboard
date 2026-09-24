@@ -30,7 +30,7 @@ Two consequences:
 
 1. **Depth is the real lever.** Depth 20 (2 pages) is ten times cheaper than depth 100. If you
    only care about entrances into the top-30, take depth 50.
-2. **Wall time is A-Parser's thread count**, not OpenGSC's. The collector runs keywords in
+2. **Wall time is A-Parser's thread count**, not RankTracker Console's. The collector runs keywords in
    parallel up to your configured A-Parser concurrency limit and then queues; a 944-keyword
    project with 20 threads is a few tens of minutes, and a run interrupted by a restart
    resumes where it stopped (keywords that already have a snapshot in this run are skipped).

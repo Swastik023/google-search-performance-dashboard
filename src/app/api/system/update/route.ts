@@ -16,7 +16,7 @@ import os from "os";
 // links) have no session and are rejected. We additionally verify the session's user is
 // the owner row, so this can never be triggered anonymously.
 
-const LOG_PATH = path.join(os.tmpdir(), "opengsc-update.log");
+const LOG_PATH = path.join(os.tmpdir(), "ranktracker-console-update.log");
 const START = "___OPENGSC_UPDATE_START___";
 const DONE = "___OPENGSC_UPDATE_DONE___";
 const FAIL = "___OPENGSC_UPDATE_FAIL___";

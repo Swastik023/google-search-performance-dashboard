@@ -21,7 +21,7 @@
 // The paid group is new, and it is the one exception to what this file used to promise.
 // It exists because the web UI can do things an agent cannot reproduce (the outline
 // pipeline's fact grounding, Casino RAG, the user's editorial policy), and refusing to
-// expose them made the MCP a strictly worse OpenGSC. The exposure is deliberately
+// expose them made the MCP a strictly worse RankTracker Console. The exposure is deliberately
 // awkward: paid tools refuse to run without `confirm: true`, and their descriptions
 // point at the free path first. See toolsOptimize.ts for the reasoning in full.
 
@@ -57,7 +57,7 @@ const CORE_TOOLS: McpTool[] = [
     name: "list_sites",
     cost: "local",
     description:
-      "List every site connected to this OpenGSC instance (all Google accounts), with tags and last-sync info. Call this first to discover what data is available and to get exact site identifiers for the other tools.",
+      "List every site connected to this RankTracker Console instance (all Google accounts), with tags and last-sync info. Call this first to discover what data is available and to get exact site identifiers for the other tools.",
     inputSchema: { type: "object", properties: {} },
     handler: async (userId) => {
       const sites = await prisma.site.findMany({
@@ -401,7 +401,7 @@ const CORE_TOOLS: McpTool[] = [
     name: "get_site_audit",
     cost: "local",
     description:
-      "Latest technical Site Audit from OpenGSC's built-in crawler: health score and issue counts across HTTP/redirects, metadata, canonicals/robots, HTML structure, JSON-LD/social metadata, links, mixed content, security headers and response time, plus affected URLs for one issue. This is the runtime Site Audit only; it does not combine AI Visibility or SEO Tools → GEO data. If no audit exists, tell the user to run one in the site's Audit tab.",
+      "Latest technical Site Audit from RankTracker Console's built-in crawler: health score and issue counts across HTTP/redirects, metadata, canonicals/robots, HTML structure, JSON-LD/social metadata, links, mixed content, security headers and response time, plus affected URLs for one issue. This is the runtime Site Audit only; it does not combine AI Visibility or SEO Tools → GEO data. If no audit exists, tell the user to run one in the site's Audit tab.",
     inputSchema: {
       type: "object",
       properties: {
@@ -646,7 +646,7 @@ const CORE_TOOLS: McpTool[] = [
       ]);
       const named = (c: ToolCost) => MCP_TOOLS.filter(t => (t.cost ?? "local") === c).map(t => t.name);
       return {
-        server: "opengsc",
+        server: "ranktracker-console",
         version: pkg.version,
         toolCount: MCP_TOOLS.length,
         tools: {

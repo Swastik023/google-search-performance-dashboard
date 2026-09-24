@@ -1,9 +1,9 @@
 ---
 name: aeo-visibility-review
-description: "Assess how visible a site is in AI answer engines (ChatGPT, Perplexity, Claude, Grok) using OpenGSC's AEO Tracker data, and recommend how to win uncited questions."
+description: "Assess how visible a site is in AI answer engines (ChatGPT, Perplexity, Claude, Grok) using RankTracker Console's AEO Tracker data, and recommend how to win uncited questions."
 ---
 
-# OpenGSC AEO Visibility Review
+# RankTracker Console AEO Visibility Review
 
 ## Goal
 
@@ -13,7 +13,7 @@ Tell the user where they stand in AI search: which tracked questions cite/mentio
 
 - The site (domain). Call `list_sites` if unknown.
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `get_aeo_visibility`: tracked questions with the latest per-engine cited/not-cited state. Engines using live web search (ChatGPT, Perplexity) signal citation; Claude/Grok signal brand mention.
 - `get_search_performance` (`dimension=query`): questions people already find the site with in Google — candidates to add to AEO tracking.

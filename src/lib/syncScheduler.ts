@@ -9,7 +9,7 @@
 // Google account of every user, so this cannot be a per-user schedule even though the setting is
 // stored per user. If two people both switch it on, the earlier of the two hours wins and the
 // second one finds the run already done for the day. On a single-operator instance — which is
-// what OpenGSC is — that distinction never comes up.
+// what RankTracker Console is — that distinction never comes up.
 
 import { runGscSync, isSyncInProgress } from "@/lib/gscSync";
 import { getSyncSchedule, saveSyncSchedule, isDue } from "@/lib/syncSchedule";

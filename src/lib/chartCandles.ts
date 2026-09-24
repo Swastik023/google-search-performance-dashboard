@@ -20,7 +20,7 @@
 
 export type ChartTypePref = "line" | "candle";
 
-const PREF_KEY = "opengsc:chartType";
+const PREF_KEY = "ranktracker-console:chartType";
 
 export function readChartTypePref(): ChartTypePref {
   if (typeof window === "undefined") return "line";

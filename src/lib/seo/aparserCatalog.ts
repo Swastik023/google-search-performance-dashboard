@@ -1,4 +1,4 @@
-// The slice of A-Parser's catalogue OpenGSC has a use for.
+// The slice of A-Parser's catalogue RankTracker Console has a use for.
 //
 // Pure data, in its own file, so a client component can import it without dragging the transport
 // (and its `process.env` reads) into the browser bundle — the same reason `lib/team/roles.ts` is
@@ -7,7 +7,7 @@
 // ─── Parsers this app cares about ────────────────────────────────────────────
 
 /**
- * The subset of the catalogue OpenGSC has a use for, so the /aparser screen can answer
+ * The subset of the catalogue RankTracker Console has a use for, so the /aparser screen can answer
  * "what can MY instance do for this app" instead of listing 138 names.
  *
  * `availableParsers` from `info` is the authority: 138 is what a stock build ships with, not a

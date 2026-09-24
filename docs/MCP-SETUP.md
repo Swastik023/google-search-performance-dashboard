@@ -1,6 +1,6 @@
-# MCP Setup — Connect AI Agents to OpenGSC
+# MCP Setup — Connect AI Agents to RankTracker Console
 
-OpenGSC exposes an MCP (Model Context Protocol) server at `/api/mcp`, so AI agents can query
+RankTracker Console exposes an MCP (Model Context Protocol) server at `/api/mcp`, so AI agents can query
 your SEO data directly: Claude Code, Claude Desktop, Cursor, Codex CLI, or any MCP-capable
 client.
 
@@ -17,7 +17,7 @@ grouping so an agent can see it before choosing:
 The paid tier is three tools. `start_rewrite_job` and `start_generation_job` spend AI credits;
 `research_keywords` spends DataForSEO credits. All three refuse to run unless the agent passes
 `confirm: true`, and all three name the free alternative in their own descriptions — because an
-agent connected to OpenGSC is itself a language model, and paying a second one to write text the
+agent connected to RankTracker Console is itself a language model, and paying a second one to write text the
 first could have written is money for nothing. See [Optimizing a page](#5-optimizing-a-page) for
 the free workflow.
 
@@ -31,7 +31,7 @@ web UI both read it for free.
 ## 1. Generate a token
 
 **Settings → API & MCP → Generate token.** The token (`ogsc_…`) grants read access to all
-your OpenGSC data — treat it like a password; you can rotate or revoke it on the same page.
+your RankTracker Console data — treat it like a password; you can rotate or revoke it on the same page.
 
 ## 2. Connect your client
 
@@ -40,7 +40,7 @@ The endpoint is `https://your-domain.com/api/mcp` (Streamable HTTP transport).
 **Claude Code**
 
 ```bash
-claude mcp add --transport http opengsc https://your-domain.com/api/mcp \
+claude mcp add --transport http ranktracker-console https://your-domain.com/api/mcp \
   --header "Authorization: Bearer ogsc_YOUR_TOKEN"
 ```
 
@@ -66,7 +66,7 @@ Developer → *Edit Config*, then restart Claude Desktop (needs Node.js installe
 ```json
 {
   "mcpServers": {
-    "opengsc": {
+    "ranktracker-console": {
       "command": "npx",
       "args": ["-y", "mcp-remote", "https://your-domain.com/api/mcp",
                "--header", "Authorization: Bearer ogsc_YOUR_TOKEN"]
@@ -80,7 +80,7 @@ Developer → *Edit Config*, then restart Claude Desktop (needs Node.js installe
 ```json
 {
   "mcpServers": {
-    "opengsc": {
+    "ranktracker-console": {
       "url": "https://your-domain.com/api/mcp",
       "headers": { "Authorization": "Bearer ogsc_YOUR_TOKEN" }
     }
@@ -91,12 +91,12 @@ Developer → *Edit Config*, then restart Claude Desktop (needs Node.js installe
 **Codex CLI** — add to `~/.codex/config.toml`:
 
 ```toml
-[mcp_servers.opengsc]
+[mcp_servers.ranktracker-console]
 url = "https://your-domain.com/api/mcp"
 http_headers = { "Authorization" = "Bearer ogsc_YOUR_TOKEN" }
 ```
 
-Then try: *“Look at mysite.com in OpenGSC — which keywords are in striking distance and what
+Then try: *“Look at mysite.com in RankTracker Console — which keywords are in striking distance and what
 should I do first?”*
 
 ### Tokens and team roles
@@ -246,7 +246,7 @@ The intended flow costs you nothing beyond what you already pay your agent:
    keywords, CTR gaps, six-month trend, cannibalization conflicts, audit issues and the live
    page as Markdown.
 3. **Your agent writes the new version.** It is a language model with the brief in context;
-   it does not need OpenGSC to call a second one.
+   it does not need RankTracker Console to call a second one.
 4. `analyze_text` with the original as `source` — deterministic, no model, always the same
    answer. Reports uniqueness, heading-structure drift, and any number or identifier that
    appears in the draft but not the source. That last one is the check that matters: a
@@ -275,7 +275,7 @@ are top-level arguments with the UI's defaults.
 
 Rewriting one page means fetching it, then a model call producing up to 8000 tokens, then a
 repair pass when the value audit finds drift. That is minutes of work, and the per-call
-ceiling inside OpenGSC is 280 seconds. MCP clients abandon a tool call after 30–60.
+ceiling inside RankTracker Console is 280 seconds. MCP clients abandon a tool call after 30–60.
 
 The failure that follows is worse than a slow response, and it is why raising a timeout is
 not the fix. **When the client gives up, the server does not.** The model call completes, the
@@ -312,7 +312,7 @@ read your `Authorization` header. (The gate lives in `src/proxy.ts`; it was `src
 until Next.js 16 renamed the convention.) Update and rebuild:
 
 ```bash
-cd /root/opengsc && git pull && npm install && npx prisma db push && npm run build && pm2 restart opengsc
+cd /root/ranktracker-console && git pull && npm install && npx prisma db push && npm run build && pm2 restart ranktracker-console
 ```
 
 **Claude Desktop says the connector failed, with no detail.** Almost always the token was

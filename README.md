@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="logo.svg" alt="OpenGSC" width="88" />
+<img src="logo.svg" alt="RankTracker Console" width="88" />
 
 # RankTracker Console — Google Search Console Intelligence & SERP Tracker
 
@@ -11,37 +11,37 @@
 
 Self-hosted on your own VPS. No subscriptions, no seat limits, no third party touching your data.
 
-[![Version 1.7.1](https://img.shields.io/badge/version-1.7.1-brightgreen)](https://github.com/fenjo26/opengsc/releases)
+[![Version 1.7.1](https://img.shields.io/badge/version-1.7.1-brightgreen)](https://github.com/swastik-agnihotri/ranktracker-console/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue?logo=typescript)](https://www.typescriptlang.org/)
 ![Self-hosted](https://img.shields.io/badge/deploy-self--hosted%20VPS-2ea44f)
-[![GitHub stars](https://img.shields.io/github/stars/fenjo26/opengsc?style=flat)](https://github.com/fenjo26/opengsc/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/fenjo26/opengsc)](https://github.com/fenjo26/opengsc/issues)
+[![GitHub stars](https://img.shields.io/github/stars/swastik-agnihotri/ranktracker-console?style=flat)](https://github.com/swastik-agnihotri/ranktracker-console/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/swastik-agnihotri/ranktracker-console)](https://github.com/swastik-agnihotri/ranktracker-console/issues)
 
 [Русская версия](README.ru.md) · [English version](README.md)
 
-[Website](https://opengsc.org) · [Install](#-installation) · [Features](#-features) · [SEO Tools](#-ai-seo-content-suite-seo-tools) · [Indexer](#-private-indexer-network) · [Docs](docs/)
+[Website](https://ranktracker-console.org) · [Install](#-installation) · [Features](#-features) · [SEO Tools](#-ai-seo-content-suite-seo-tools) · [Indexer](#-private-indexer-network) · [Docs](docs/)
 
 </div>
 
 <br/>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fenjo26/opengsc/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/swastik-agnihotri/ranktracker-console/main/install.sh | sudo bash
 ```
 
 <br/>
 
 <div align="center">
-<img src="screenshot/main%20dashbord.png" alt="OpenGSC main dashboard" width="90%" />
+<img src="screenshot/main%20dashbord.png" alt="RankTracker Console main dashboard" width="90%" />
 </div>
 
 <br/>
 
 ## 🌍 Supported languages
 
-OpenGSC's interface is available in **seven languages** — pick one from the language switcher on the login screen or in **Settings → Preferences**:
+RankTracker Console's interface is available in **seven languages** — pick one from the language switcher on the login screen or in **Settings → Preferences**:
 
 | Code | Language | Native name |
 |------|----------|-------------|
@@ -57,13 +57,13 @@ Telegram/Slack alerts and digests are sent in the same language you pick. SEO an
 
 <br/>
 
-## Why OpenGSC
+## Why RankTracker Console
 
-Tools like seogets.com charge **$19–$79/month** to show you the Google Search Console data you already own, aggregated across sites. OpenGSC gives you the same core analytics — clicks, impressions, CTR, position, striking-distance keywords, content decay, cannibalization — for the cost of a $5/month VPS, because it *is* the VPS: one install script, your own SQLite database, your own domain, your own Google OAuth app. Nothing about your Search Console data ever passes through a third-party server.
+Tools like seogets.com charge **$19–$79/month** to show you the Google Search Console data you already own, aggregated across sites. RankTracker Console gives you the same core analytics — clicks, impressions, CTR, position, striking-distance keywords, content decay, cannibalization — for the cost of a $5/month VPS, because it *is* the VPS: one install script, your own SQLite database, your own domain, your own Google OAuth app. Nothing about your Search Console data ever passes through a third-party server.
 
-On top of that dashboard, OpenGSC ships two things most GSC tools don't: a full **AI-powered SEO content generation suite** (`/seo-tools` — competitor research, entity-driven outlines, full articles, GEO/AI-search-citation audits, brand sentiment tracking) and a **private indexing network** (`/indexer` — your own doorway-domain infrastructure with cloaked bot verification, for operators who need fast, free indexing outside of Search Console's normal discovery flow).
+On top of that dashboard, RankTracker Console ships two things most GSC tools don't: a full **AI-powered SEO content generation suite** (`/seo-tools` — competitor research, entity-driven outlines, full articles, GEO/AI-search-citation audits, brand sentiment tracking) and a **private indexing network** (`/indexer` — your own doorway-domain infrastructure with cloaked bot verification, for operators who need fast, free indexing outside of Search Console's normal discovery flow).
 
-| | OpenGSC | Typical SaaS GSC dashboard |
+| | RankTracker Console | Typical SaaS GSC dashboard |
 |---|---|---|
 | Price | Free forever | $19–$79/month |
 | Hosting | Your own VPS | Their cloud |
@@ -83,7 +83,7 @@ data in. The owner can also keep signing in with Google — after setting a pass
 Google account that is not the owner's is refused rather than quietly attached. Lost the password? `npm run set-password -- --email you@example.com`
 from the server.
 
-**Support contract:** OpenGSC is a single-workspace application. One owner connects the Google
+**Support contract:** RankTracker Console is a single-workspace application. One owner connects the Google
 accounts and pays for every API key; team members are invited into that workspace with a role
 (viewer, editor or admin) and sign in with an email and a password rather than Google, so nobody's
 personal Search Console properties are pulled in. There is no multi-tenancy: one instance serves one
@@ -207,7 +207,7 @@ internally — provider routing, the price model, caching and where it is wired:
 
 ### Demand — Keyword Research & Domain Overview
 
-Every other screen in OpenGSC starts from queries you already appear for. **Demand** starts from the market, and it is the only place that can return a keyword Search Console has never heard of. It runs on the DataForSEO key you may already have configured for SERP — no new provider, no new subscription.
+Every other screen in RankTracker Console starts from queries you already appear for. **Demand** starts from the market, and it is the only place that can return a keyword Search Console has never heard of. It runs on the DataForSEO key you may already have configured for SERP — no new provider, no new subscription.
 
 - **By keyword** — a seed goes to DataForSEO Labs and comes back as what people actually search, with volume, difficulty, CPC, intent and a 12-month trend sparkline. Then every row is answered by *your* GSC history: **within reach** (top 30 — improve that page, the URL is in the row), **wrong page** (you appear but nothing wins — intent mismatch), **no content** (write it). Ahrefs knows the first half of each row and Search Console knows the second; this is the only screen that holds both.
 - **By domain** — type any domain and get its estimated organic traffic, keyword count, the distribution of those keywords across position bands, the terms actually bringing the traffic, and the pages carrying them. Works on domains you do not own — a competitor, a client you have not onboarded, a drop you are thinking of buying. Passing one of your sites adds a comparison column instead of being required.
@@ -224,11 +224,11 @@ One panel per site combining SSL certificate inspection (expiry, issuer, grade),
 
 ### Site Audit — Built-in Crawler
 
-A free technical audit with **zero external APIs**: OpenGSC crawls your site from your own VPS (up to 500 pages, BFS from the root) and reports broken internal links, missing/too-long/duplicate titles, missing meta descriptions, H1 problems, `noindex` pages, canonical mismatches, thin content, images without alt, slow responses, and client-rendered (JS) pages where static-HTML signals can't be trusted — rolled up into a health score with a filterable per-page table. Each audit also runs an **AI Crawlability** check: whether AI crawlers (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended, CCBot, Bytespider) are blocked in your `robots.txt`, and whether `/llms.txt` exists — a root `Disallow` on GPTBot is a silent reason an answer engine never cites you, surfaced here as a fixable diagnosis rather than just the symptom. Runs as a background job in the site's **Audit** tab; results are kept as audit history and exportable as Markdown. The workspace-wide **Audits** page in the top navigation rolls every run across all sites into one history — pages, issue counts, health and regression verdicts per row, filterable by site/status/date, sortable by issues or regressions — and lists **never-audited** sites as a first-class state; every row opens that site's Audit tab.
+A free technical audit with **zero external APIs**: RankTracker Console crawls your site from your own VPS (up to 500 pages, BFS from the root) and reports broken internal links, missing/too-long/duplicate titles, missing meta descriptions, H1 problems, `noindex` pages, canonical mismatches, thin content, images without alt, slow responses, and client-rendered (JS) pages where static-HTML signals can't be trusted — rolled up into a health score with a filterable per-page table. Each audit also runs an **AI Crawlability** check: whether AI crawlers (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended, CCBot, Bytespider) are blocked in your `robots.txt`, and whether `/llms.txt` exists — a root `Disallow` on GPTBot is a silent reason an answer engine never cites you, surfaced here as a fixable diagnosis rather than just the symptom. Runs as a background job in the site's **Audit** tab; results are kept as audit history and exportable as Markdown. The workspace-wide **Audits** page in the top navigation rolls every run across all sites into one history — pages, issue counts, health and regression verdicts per row, filterable by site/status/date, sortable by issues or regressions — and lists **never-audited** sites as a first-class state; every row opens that site's Audit tab.
 
 ### Alerts & Digests — Telegram Notifications
 
-Bring your own Telegram bot (one-time @BotFather setup, token pasted in **Settings → Notifications**) and OpenGSC pushes what matters straight to your chat — free, no third-party service:
+Bring your own Telegram bot (one-time @BotFather setup, token pasted in **Settings → Notifications**) and RankTracker Console pushes what matters straight to your chat — free, no third-party service:
 
 - **Alerts** (checked hourly, each event fires once): a tracked keyword fell N+ positions, a site's clicks dropped X%+ week-over-week, an SSL certificate is about to expire, a site audit came back with a low health score. Thresholds are configurable per rule.
 - **Digests** (the **Digest** tab): a portfolio report over all sites *or one tag* — so a site network you care about gets its own summary. The on-screen view is **rich and full** (explicit date range, portfolio KPIs, biggest gainers/losers by site, rising/falling queries, *all* striking-distance queries, sites needing attention, rank movements — each section with "show all" and CSV), while **Telegram receives a shorter capped summary** (4 000-char safe). **Google / Bing / Yandex tabs** split the report per engine (engine tabs reuse the cached engine portfolio). An optional **AI conclusion** (your own AI key) is written on top and is **on by default when any AI key is configured**. Preview on screen, send on demand, or schedule daily/weekly delivery.
@@ -240,10 +240,10 @@ Share a site's dashboard with a client without giving them an account: **site �
 
 ### MCP Server — Connect AI Agents
 
-OpenGSC ships a built-in **MCP (Model Context Protocol) server** at `/api/mcp` with **65 tools**, so Claude Code, Claude Desktop, Cursor, Codex, or any MCP client can work with your SEO data directly: sites, search performance, striking-distance keywords, cannibalization, content decay, CTR benchmarks, content groups, rank tracking and history, AEO visibility, GEO audits, backlinks, Link Monitor mentions and the manual Outreach Workspace, stored Source Audit findings, keyword demand and difficulty, competitor gaps, site health, indexing status, audit results, GA4, Clarity, Bing/Yandex portfolios, the indexer network, SERP Monitor projects, markets, storms and domain catalogues, fired alerts, digests, generation history, and arbitrary read-only SQL. Generate a token under **Settings → API & MCP**, then:
+RankTracker Console ships a built-in **MCP (Model Context Protocol) server** at `/api/mcp` with **65 tools**, so Claude Code, Claude Desktop, Cursor, Codex, or any MCP client can work with your SEO data directly: sites, search performance, striking-distance keywords, cannibalization, content decay, CTR benchmarks, content groups, rank tracking and history, AEO visibility, GEO audits, backlinks, Link Monitor mentions and the manual Outreach Workspace, stored Source Audit findings, keyword demand and difficulty, competitor gaps, site health, indexing status, audit results, GA4, Clarity, Bing/Yandex portfolios, the indexer network, SERP Monitor projects, markets, storms and domain catalogues, fired alerts, digests, generation history, and arbitrary read-only SQL. Generate a token under **Settings → API & MCP**, then:
 
 ```bash
-claude mcp add --transport http opengsc https://your-domain.com/api/mcp \
+claude mcp add --transport http ranktracker-console https://your-domain.com/api/mcp \
   --header "Authorization: Bearer <token>"
 ```
 
@@ -322,14 +322,14 @@ A full competitor-research-to-published-article pipeline, plus AI-search-visibil
 <summary><b>Keyword Clustering</b> — SERP-based topic grouping</summary>
 <br/>
 
-Paste a keyword list and OpenGSC pulls a live TOP-10 SERP for each keyword, then hard-clusters keywords whose results share N+ overlapping URLs (threshold selectable, with an in-context guide) — the classic "one cluster = one page" planning method, grounded in what Google actually ranks together rather than semantic guesswork. Optional DataForSEO search volumes per keyword, CSV export, and a one-click handoff of any cluster straight into the Outline Generator. Runs as a background job — close the tab, the result lands in History.
+Paste a keyword list and RankTracker Console pulls a live TOP-10 SERP for each keyword, then hard-clusters keywords whose results share N+ overlapping URLs (threshold selectable, with an in-context guide) — the classic "one cluster = one page" planning method, grounded in what Google actually ranks together rather than semantic guesswork. Optional DataForSEO search volumes per keyword, CSV export, and a one-click handoff of any cluster straight into the Outline Generator. Runs as a background job — close the tab, the result lands in History.
 </details>
 
 <details open>
 <summary><b>Outline Generator</b> — competitor-grounded content briefs</summary>
 <br/>
 
-Enter a keyword, target country/language, and search engine (Google or Bing). OpenGSC runs a live SERP query, classifies every ranking page by site type (official store, monobrand, aggregator, forum/UGC, editorial) and intent (buy / info / review / listicle / use-case), lets you pick which competitors to analyze, scrapes them (direct fetch, falling back to Firecrawl on anti-bot pages), and runs a multi-pass pipeline:
+Enter a keyword, target country/language, and search engine (Google or Bing). RankTracker Console runs a live SERP query, classifies every ranking page by site type (official store, monobrand, aggregator, forum/UGC, editorial) and intent (buy / info / review / listicle / use-case), lets you pick which competitors to analyze, scrapes them (direct fetch, falling back to Firecrawl on anti-bot pages), and runs a multi-pass pipeline:
 
 1. **MAP** — extract compact, verified facts from each competitor separately (specs, prices, entities, headings covered).
 2. **REDUCE** — build one Entity-Attribute-Value (EAV) outline from those facts: headings, per-section word budgets, weighted entities with roles, keywords, FAQ, visual-element suggestions (tables/infographics/checklists).
@@ -422,7 +422,7 @@ Not to be confused with GEO's AI-citation tracking — this tracks classic web-w
 <summary><b>Link Monitor</b> — competitor backlink watchlist (Ahrefs API)</summary>
 <br/>
 
-Watch any set of competitor brand domains and pull their **fresh quality backlinks** through your own Ahrefs API v3 key, filtered the way link-building pros do (the [detailed.com](https://detailed.com/ai-backlinks-api/) workflow): in-content links only, live, DR ≥ 50 (configurable), first seen within the last 3 months, one per referring domain. The report surfaces **multi-linker domains** — sites that link to two or more of your watched brands, i.e. your highest-probability outreach targets — plus an AI insights pass over the data: which content types earn links, in what context authors mention the brands, anchor patterns, and concrete content/PR opportunities. Save any result into the built-in **Outreach Workspace** to track campaigns, evidence, contacts, follow-ups, stage history, conversion and the backlink eventually won. OpenGSC can prepare a localized pitch draft, but never sends it automatically. Not to be confused with the per-site **Backlinks Checker** above, which tracks *your own* curated link inventory.
+Watch any set of competitor brand domains and pull their **fresh quality backlinks** through your own Ahrefs API v3 key, filtered the way link-building pros do (the [detailed.com](https://detailed.com/ai-backlinks-api/) workflow): in-content links only, live, DR ≥ 50 (configurable), first seen within the last 3 months, one per referring domain. The report surfaces **multi-linker domains** — sites that link to two or more of your watched brands, i.e. your highest-probability outreach targets — plus an AI insights pass over the data: which content types earn links, in what context authors mention the brands, anchor patterns, and concrete content/PR opportunities. Save any result into the built-in **Outreach Workspace** to track campaigns, evidence, contacts, follow-ups, stage history, conversion and the backlink eventually won. RankTracker Console can prepare a localized pitch draft, but never sends it automatically. Not to be confused with the per-site **Backlinks Checker** above, which tracks *your own* curated link inventory.
 </details>
 
 <details open>
@@ -440,13 +440,13 @@ One page per scan, plus the paths every site publishes anyway (robots.txt, sitem
 <summary><b>Content Operations & Source Audit</b> — review drafts, ship PRs, check code before deployment</summary>
 <br/>
 
-*New in 1.4.0 — the first release where OpenGSC writes to a system outside itself. Connect a scratch repository first and watch one item go through end to end.*
+*New in 1.4.0 — the first release where RankTracker Console writes to a system outside itself. Connect a scratch repository first and watch one item go through end to end.*
 
-Move an existing draft through an explicit idea → approval → review workflow, preview a deterministic diff, and create a GitHub branch and pull request only after confirmation. OpenGSC never writes to the base branch and never auto-merges. The same connected repository has a separate, **read-only Source Audit** tab: choose a branch and run bounded Next.js SEO, performance, correctness, security and architecture checks against its immutable commit snapshot. Up to 80 files / 4 MB are inspected in memory; source bodies and secret values are not stored, and any safety-limit truncation is visible in the report.
+Move an existing draft through an explicit idea → approval → review workflow, preview a deterministic diff, and create a GitHub branch and pull request only after confirmation. RankTracker Console never writes to the base branch and never auto-merges. The same connected repository has a separate, **read-only Source Audit** tab: choose a branch and run bounded Next.js SEO, performance, correctness, security and architecture checks against its immutable commit snapshot. Up to 80 files / 4 MB are inspected in memory; source bodies and secret values are not stored, and any safety-limit truncation is visible in the report.
 
 Source Audit checks repository code before deployment. It does **not** replace or merge data with the runtime **Site Audit**, **AI Visibility**, or **SEO Tools → GEO** — those remain separate tools with their own settings, reports and logic.
 
-After the merge the loop actually closes. A merged pull request is not a deployment, so OpenGSC fetches the target URL itself and starts measuring only on a real HTTP 200 — then links the page into **Indexing** and, when the item has a keyword, into the **Rank Tracker**. Outcome windows open on the live date and close at **7, 30 and 90 days**, each captured once from your own Search Console rows against a 28-day baseline, with the reporting lag accounted for: an empty row means *not measured yet*, never zero traffic. Nothing is auto-submitted to a paid indexer, and nothing is merged for you.
+After the merge the loop actually closes. A merged pull request is not a deployment, so RankTracker Console fetches the target URL itself and starts measuring only on a real HTTP 200 — then links the page into **Indexing** and, when the item has a keyword, into the **Rank Tracker**. Outcome windows open on the live date and close at **7, 30 and 90 days**, each captured once from your own Search Console rows against a 28-day baseline, with the reporting lag accounted for: an empty row means *not measured yet*, never zero traffic. Nothing is auto-submitted to a paid indexer, and nothing is merged for you.
 </details>
 
 <details open>
@@ -469,7 +469,7 @@ A unified log across Cluster, Outline, Text, Analysis, and Landing runs. Generat
 
 ## 🕸️ Private Indexer Network
 
-A self-hosted **doorway-domain network** for operators who need pages indexed fast and for free, outside the normal discovery flow Search Console relies on. You bring the domains; OpenGSC gives you the management console, the cloaking script, and the crawl-analytics to run them safely.
+A self-hosted **doorway-domain network** for operators who need pages indexed fast and for free, outside the normal discovery flow Search Console relies on. You bring the domains; RankTracker Console gives you the management console, the cloaking script, and the crawl-analytics to run them safely.
 
 - **Domains** — register a doorway domain, pick a generated-content template (Ecommerce / Directory / Blog / Portfolio), set the real "money site" redirect target, choose which bots are allowed in (Google / Bing / Yandex), and get a unique API key per domain.
 - **Queue** — bulk-paste the money-site URLs that should be woven as internal links into the next batch of generated doorway pages.
@@ -512,7 +512,7 @@ Tested on **Ubuntu 22.04 LTS**; other Debian-based distros also work. CentOS/RHE
 
 Every step below is a direct link that opens exactly the right page in Google Cloud Console. Sign in with the Google account that owns your Search Console sites.
 
-1. **Create a project** (or reuse one): [console.cloud.google.com/projectcreate](https://console.cloud.google.com/projectcreate). Any name works, e.g. `opengsc`. Make sure this project stays selected in the top bar for all following steps.
+1. **Create a project** (or reuse one): [console.cloud.google.com/projectcreate](https://console.cloud.google.com/projectcreate). Any name works, e.g. `ranktracker-console`. Make sure this project stays selected in the top bar for all following steps.
 2. **Enable the Search Console API**: open [console.cloud.google.com/apis/library/searchconsole.googleapis.com](https://console.cloud.google.com/apis/library/searchconsole.googleapis.com) and click **Enable**.
 3. **Configure the OAuth consent screen** (required once before creating credentials): open [console.cloud.google.com/auth/branding](https://console.cloud.google.com/auth/branding). Choose **External**, fill in the app name and your email — defaults are fine everywhere else. Then open [console.cloud.google.com/auth/audience](https://console.cloud.google.com/auth/audience) and add your own Google account (plus any accounts whose GSC sites you'll connect) under **Test users**.
 4. **Create the OAuth client**: open [console.cloud.google.com/auth/clients/create](https://console.cloud.google.com/auth/clients/create) (the same page is reachable via **Credentials → Create Credentials → OAuth client ID** at [console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)). Application type: **Web application**. Fill in:
@@ -530,10 +530,10 @@ Every step below is a direct link that opens exactly the right page in Google Cl
 ### 2. Run the one-line installer
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fenjo26/opengsc/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/swastik-agnihotri/ranktracker-console/main/install.sh | sudo bash
 ```
 
-The script clones the repo into `/root/opengsc`, then asks for: your domain, whether to install Nginx (recommended), whether to set up SSL via Let's Encrypt (recommended), an email for the SSL cert, and your Google Client ID/Secret. It then automatically installs Node.js 24 LTS, installs PM2 and runs the app as a managed service, configures Nginx as a reverse proxy, issues an SSL certificate via Certbot, and configures the UFW firewall (ports 22/80/443).
+The script clones the repo into `/root/ranktracker-console`, then asks for: your domain, whether to install Nginx (recommended), whether to set up SSL via Let's Encrypt (recommended), an email for the SSL cert, and your Google Client ID/Secret. It then automatically installs Node.js 24 LTS, installs PM2 and runs the app as a managed service, configures Nginx as a reverse proxy, issues an SSL certificate via Certbot, and configures the UFW firewall (ports 22/80/443).
 
 ### 3. Open it
 
@@ -553,8 +553,8 @@ Sign in with Google — the **first account becomes the dashboard owner**. Add m
 
 ```bash
 # Clone
-git clone https://github.com/fenjo26/opengsc.git
-cd opengsc
+git clone https://github.com/swastik-agnihotri/ranktracker-console.git
+cd ranktracker-console
 
 # Node.js 24 (Active LTS — Node 20 reached end of life in April 2026)
 curl -fsSL https://deb.nodesource.com/setup_24.x | sudo bash -
@@ -576,7 +576,7 @@ npx prisma db push
 npm run build
 
 # Run
-pm2 start npm --name opengsc -- start
+pm2 start npm --name ranktracker-console -- start
 pm2 save
 pm2 startup
 ```
@@ -588,7 +588,7 @@ pm2 startup
 
 | Variable | Description | Example |
 |---|---|---|
-| `DATABASE_URL` | Path to the SQLite database | `file:/root/opengsc/data/prod.db` |
+| `DATABASE_URL` | Path to the SQLite database | `file:/root/ranktracker-console/data/prod.db` |
 | `NEXTAUTH_SECRET` | Random secret used to encrypt sessions | `openssl rand -base64 32` |
 | `CONTENT_OPS_SECRET` | Optional stable key for Content Operations GitHub-token encryption; falls back to `NEXTAUTH_SECRET` | `openssl rand -base64 32` |
 | `OPENGSC_ALLOW_PRIVATE_TARGETS` | Optional. Allows owner-driven audits of localhost/LAN targets, which are blocked by default as SSRF protection. The public Free SEO Checker ignores it | `1` |
@@ -616,41 +616,41 @@ the token is never returned by the API or exposed to MCP.
 ## Managing the App
 
 ```bash
-pm2 logs opengsc       # view logs
-pm2 restart opengsc    # restart
-pm2 stop opengsc       # stop
+pm2 logs ranktracker-console       # view logs
+pm2 restart ranktracker-console    # restart
+pm2 stop ranktracker-console       # stop
 pm2 status             # status of all processes
 ```
 
 ### Updating to a new version
 
-**From the UI (easiest):** when a newer version is on `main`, a **"New version available"** bar appears at the top of the dashboard. Click **Update** → **Start update** and OpenGSC runs the whole upgrade on your server (fetch, install, migrate, rebuild, restart), streaming the log live; when it's done it prompts a page reload. The update button is owner-only and never shown to guests.
+**From the UI (easiest):** when a newer version is on `main`, a **"New version available"** bar appears at the top of the dashboard. Click **Update** → **Start update** and RankTracker Console runs the whole upgrade on your server (fetch, install, migrate, rebuild, restart), streaming the log live; when it's done it prompts a page reload. The update button is owner-only and never shown to guests.
 
 **By hand (or for Docker):**
 
 ```bash
-cd /root/opengsc
+cd /root/ranktracker-console
 bash update.sh
 ```
 `update.sh` is the same script the UI button runs: it backs up the SQLite database first (before touching the working tree), fetches and hard-resets to `origin/main`, installs deps with `--include=dev` (plain `npm install` silently skips Tailwind/TypeScript when `NODE_ENV=production`, which PM2 sets — the build then fails on the first stylesheet), pushes the Prisma schema, builds, and restarts PM2.
 
 **If the update hangs or fails (UI or SSH):** the SQLite backup step has a hard 10-minute ceiling — a normal backup finishes in well under a second (`VACUUM INTO` on the live db), so if it's stuck there for minutes, the database has likely grown large because `IndexerLog` (raw indexer/crawler request logs) is never rolled up automatically. Roll it up by hand before retrying:
 ```bash
-cd /root/opengsc
+cd /root/ranktracker-console
 node scripts/rollup-logs.ts
 ```
 ⚠️ This permanently deletes all raw `IndexerLog` rows except the latest 5,000 (the aggregated daily stats in `IndexerDailyStat` are kept, so charts aren't affected).
 
 If `update.sh` itself is unavailable, the equivalent steps by hand are:
 ```bash
-cd /root/opengsc
+cd /root/ranktracker-console
 git fetch origin
 node scripts/backup-sqlite.mjs   # back up before touching the working tree
 git reset --hard origin/main
 npm i --include=dev
 npx prisma db push
 npm run build
-pm2 restart opengsc --update-env
+pm2 restart ranktracker-console --update-env
 ```
 
 <br/>
@@ -704,23 +704,23 @@ Check <code>NEXTAUTH_URL</code> in <code>.env</code> — it must match your doma
 <details>
 <summary><b>Database disappeared after a restart</b></summary>
 <br/>
-Use an absolute path in <code>DATABASE_URL</code>, not a relative one. The installer sets this automatically (<code>file:/root/opengsc/data/prod.db</code>); on a manual install, set it explicitly.
+Use an absolute path in <code>DATABASE_URL</code>, not a relative one. The installer sets this automatically (<code>file:/root/ranktracker-console/data/prod.db</code>); on a manual install, set it explicitly.
 </details>
 
 <details>
-<summary><b><code>pm2 restart opengsc</code> doesn't pick up changes after <code>git pull</code></b></summary>
+<summary><b><code>pm2 restart ranktracker-console</code> doesn't pick up changes after <code>git pull</code></b></summary>
 <br/>
 Rebuild first:
 
 ```bash
-npm run build && pm2 restart opengsc
+npm run build && pm2 restart ranktracker-console
 ```
 </details>
 
 <details>
 <summary><b>Text generation fails with <code>generation_failed</code></b></summary>
 <br/>
-Check <code>pm2 logs opengsc</code> for a line starting with <code>[LLM]</code> — it carries the real provider status/error (invalid key, exhausted quota, a context-length limit on a very large outline, or the provider's own content-policy filter rejecting the topic). As of the latest version this reason is also surfaced directly in the job's error in History, so you shouldn't need to check server logs for most failures.
+Check <code>pm2 logs ranktracker-console</code> for a line starting with <code>[LLM]</code> — it carries the real provider status/error (invalid key, exhausted quota, a context-length limit on a very large outline, or the provider's own content-policy filter rejecting the topic). As of the latest version this reason is also surfaced directly in the job's error in History, so you shouldn't need to check server logs for most failures.
 </details>
 
 <br/>
@@ -838,22 +838,22 @@ docs/
 - **[docs/PRODUCT-ROADMAP.md](docs/PRODUCT-ROADMAP.md)** — prioritized product and engineering plan: product truth, durable jobs, verified audits and the OSS ideas worth adapting.
 - **[docs/RESPONSIBLE-USE.md](docs/RESPONSIBLE-USE.md)** — Private Indexer and reseller API risks, in English and Russian.
 - **[docs/RELEASE-CHECKLIST.md](docs/RELEASE-CHECKLIST.md)** — the version, migration, tag and GitHub Release gate.
-- **[docs/DOCKER-SETUP.md](docs/DOCKER-SETUP.md)** — running OpenGSC with Docker instead of the VPS installer.
+- **[docs/DOCKER-SETUP.md](docs/DOCKER-SETUP.md)** — running RankTracker Console with Docker instead of the VPS installer.
 - **[docs/INDEXER-SETUP.md](docs/INDEXER-SETUP.md)** — deploying and operating the private indexer network.
 
 <br/>
 
 ## Disclaimer
 
-The **Get key** button on the Ahrefs, Semrush and Majestic cards in Settings is a referral link to a reseller. Saying so here rather than leaving you to notice the `affiliate_key` in the URL: it is the only referral link in the project, it does not change how anything works, and nothing in OpenGSC depends on that reseller. The official API hosts are the defaults, the base-URL field accepts any gateway, and the whole metrics module works with no API key at all through CSV import. Note also that reselling Ahrefs/Semrush/Majestic API access is against those vendors' terms of service and can be withdrawn without notice — that risk is yours to weigh.
+The **Get key** button on the Ahrefs, Semrush and Majestic cards in Settings is a referral link to a reseller. Saying so here rather than leaving you to notice the `affiliate_key` in the URL: it is the only referral link in the project, it does not change how anything works, and nothing in RankTracker Console depends on that reseller. The official API hosts are the defaults, the base-URL field accepts any gateway, and the whole metrics module works with no API key at all through CSV import. Note also that reselling Ahrefs/Semrush/Majestic API access is against those vendors' terms of service and can be withdrawn without notice — that risk is yours to weigh.
 
-The **Private Indexer Network** implements doorway pages and user-agent/DNS-based cloaking — techniques that sit outside the webmaster guidelines of Google, Bing, and Yandex, and can result in penalties up to and including deindexing for domains that use them. This module is provided as infrastructure tooling for users who understand and accept that risk; it is **not** enabled or required for any other part of OpenGSC. You are solely responsible for how you use it and for compliance with the terms of service of any search engine, hosting provider, or jurisdiction that applies to you. See also [opengsc.org/disclaimer](https://opengsc.org/disclaimer/).
+The **Private Indexer Network** implements doorway pages and user-agent/DNS-based cloaking — techniques that sit outside the webmaster guidelines of Google, Bing, and Yandex, and can result in penalties up to and including deindexing for domains that use them. This module is provided as infrastructure tooling for users who understand and accept that risk; it is **not** enabled or required for any other part of RankTracker Console. You are solely responsible for how you use it and for compliance with the terms of service of any search engine, hosting provider, or jurisdiction that applies to you. See also [ranktracker-console.org/disclaimer](https://ranktracker-console.org/disclaimer/).
 
 <br/>
 
 ## Contributing
 
-Issues and PRs are welcome — this is a self-hosted, community-run project with no roadmap gatekeeping. If you're adding a feature, a short description of the use case in the issue/PR helps a lot; if you're fixing a bug, a `pm2 logs opengsc` excerpt or a reproduction is the fastest way to get it looked at.
+Issues and PRs are welcome — this is a self-hosted, community-run project with no roadmap gatekeeping. If you're adding a feature, a short description of the use case in the issue/PR helps a lot; if you're fixing a bug, a `pm2 logs ranktracker-console` excerpt or a reproduction is the fastest way to get it looked at.
 
 <br/>
 

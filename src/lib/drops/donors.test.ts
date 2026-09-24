@@ -12,7 +12,7 @@ type DonorsModule = typeof import("./donors");
 let donors!: DonorsModule;
 
 before(async () => {
-  const dir = mkdtempSync(join(tmpdir(), "opengsc-donors-"));
+  const dir = mkdtempSync(join(tmpdir(), "ranktracker-console-donors-"));
   process.env.DATABASE_URL = `file:${join(dir, "scratch.db")}`;
   donors = await import("./donors");
 });

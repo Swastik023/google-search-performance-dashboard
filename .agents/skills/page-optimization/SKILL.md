@@ -1,9 +1,9 @@
 ---
 name: page-optimization
-description: "Refresh an underperforming page via the OpenGSC MCP: find it with decay/CTR data, pull a full optimization brief, write the new version, and verify it deterministically before it ships."
+description: "Refresh an underperforming page via the RankTracker Console MCP: find it with decay/CTR data, pull a full optimization brief, write the new version, and verify it deterministically before it ships."
 ---
 
-# OpenGSC Page Optimization
+# RankTracker Console Page Optimization
 
 ## Goal
 
@@ -14,7 +14,7 @@ Take one page from "it used to do better" to a rewritten draft the user can publ
 - The site (domain). Call `list_sites` if unknown.
 - Optionally the page. If the user has not named one, find it — that is step 1.
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `get_content_decay`: pages trending down, with per-bucket history. The usual starting point.
 - `get_ctr_benchmark`: top-10 queries whose real CTR trails the benchmark for their position.

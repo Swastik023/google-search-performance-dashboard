@@ -17,7 +17,7 @@ import { NextResponse } from "next/server";
  * here: this file imports next-auth/middleware, and a route bundle has no business pulling that
  * in to learn a string. The two are asserted equal in workspaceCallContext.test.ts.
  */
-export const ROUTE_HEADER = "x-opengsc-route";
+export const ROUTE_HEADER = "x-ranktracker-console-route";
 
 /**
  * The request headers a route handler sees, carrying the path this request matched.

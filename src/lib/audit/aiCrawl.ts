@@ -16,7 +16,7 @@
 
 import { safeFetch } from "@/lib/security/safeFetch";
 
-const UA = "Mozilla/5.0 (compatible; OpenGSC-AiCheck/1.0; +https://opengsc.org)";
+const UA = "Mozilla/5.0 (compatible; RankTracker Console-AiCheck/1.0; +https://ranktracker-console.org)";
 const FETCH_TIMEOUT_MS = 10_000;
 
 // The AI crawlers worth naming. Each maps a robots.txt `User-agent:` token to the engine it feeds,

@@ -1,7 +1,7 @@
 /**
  * Who may come through the Google door, and what happens when they do.
  *
- * Google OAuth does two different jobs in OpenGSC, and they must not be confused:
+ * Google OAuth does two different jobs in RankTracker Console, and they must not be confused:
  *
  *   1. Bootstrap — on an instance with no owner yet, the first Google sign-in creates the owner.
  *   2. Data connection — an owner who is already signed in attaches Google accounts whose Search

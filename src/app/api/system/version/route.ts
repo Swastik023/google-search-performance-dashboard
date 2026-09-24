@@ -20,7 +20,7 @@ function pkgVersion(): string {
 // (GitHub API) and returns { local, remote, behind, updateAvailable, changelog[], isGit }.
 // No secrets — reads the public repo. Used by the dashboard "update available" banner.
 
-const REPO = "fenjo26/opengsc";
+const REPO = "swastik-agnihotri/ranktracker-console";
 const BRANCH = "main";
 
 async function localCommit(): Promise<string | null> {
@@ -43,7 +43,7 @@ export async function GET() {
   }
 
   try {
-    const headers = { Accept: "application/vnd.github+json", "User-Agent": "opengsc" };
+    const headers = { Accept: "application/vnd.github+json", "User-Agent": "ranktracker-console" };
     // Latest commit on main
     const relRes = await fetch(`https://api.github.com/repos/${REPO}/commits/${BRANCH}`, { headers, signal: AbortSignal.timeout(10000) });
     if (!relRes.ok) return NextResponse.json({ isGit: true, local, updateAvailable: false, error: `github ${relRes.status}` });

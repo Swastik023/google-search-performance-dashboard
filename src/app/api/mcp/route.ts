@@ -10,7 +10,7 @@ import pkg from "../../../../package.json";
 // SEO data with the user's MCP token (Settings → API & MCP).
 //
 // Connect from Claude Code:
-//   claude mcp add --transport http opengsc https://your-domain.com/api/mcp \
+//   claude mcp add --transport http ranktracker-console https://your-domain.com/api/mcp \
 //     --header "Authorization: Bearer <token>"
 //
 // Protocol: JSON-RPC 2.0 over POST. We answer every request with a plain JSON body
@@ -19,10 +19,10 @@ import pkg from "../../../../package.json";
 // tools/call. Notifications get 202 Accepted.
 
 const PROTOCOL_VERSION = "2025-06-18";
-const SERVER_INFO = { name: "opengsc", version: pkg.version };
+const SERVER_INFO = { name: "ranktracker-console", version: pkg.version };
 
 const INSTRUCTIONS =
-  "OpenGSC — self-hosted Google Search Console dashboard with rank tracking, AI-answer-engine (AEO) visibility, content decay and CTR analysis, backlinks, a competitor Link Monitor plus manual Outreach Workspace, a built-in site-audit crawler, separate GEO audits, a private indexer network, and an AI SEO content suite. " +
+  "RankTracker Console — self-hosted Google Search Console dashboard with rank tracking, AI-answer-engine (AEO) visibility, content decay and CTR analysis, backlinks, a competitor Link Monitor plus manual Outreach Workspace, a built-in site-audit crawler, separate GEO audits, a private indexer network, and an AI SEO content suite. " +
   "Call get_capabilities first: it reports which modules actually hold data and groups every tool by what calling it costs. Then list_sites for exact site identifiers.\n\n" +
   "Cost tiers, and they matter:\n" +
   "• local — reads the instance's own database. Free, instant, the large majority of tools.\n" +
@@ -173,7 +173,7 @@ export async function POST(req: Request) {
   const workspace = actorId ? await tokenWorkspace(actorId) : null;
   const userId = workspace?.ownerId ?? null;
   if (!userId || !workspace) {
-    return NextResponse.json(rpcError(null, -32001, "Unauthorized: pass your MCP token as 'Authorization: Bearer <token>' (generate one in OpenGSC → Settings → API & MCP)"), { status: 401 });
+    return NextResponse.json(rpcError(null, -32001, "Unauthorized: pass your MCP token as 'Authorization: Bearer <token>' (generate one in RankTracker Console → Settings → API & MCP)"), { status: 401 });
   }
 
   let body: RpcMsg | RpcMsg[];
@@ -212,7 +212,7 @@ export async function GET(req: Request) {
     toolCount: MCP_TOOLS.length,
     hint: userId
       ? "Authenticated. POST JSON-RPC here, e.g. {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}. GET /api/mcp/tools lists the tools as plain JSON."
-      : "No valid MCP token. Send 'Authorization: Bearer ogsc_…' (generate one in OpenGSC → Settings → API & MCP).",
+      : "No valid MCP token. Send 'Authorization: Bearer ogsc_…' (generate one in RankTracker Console → Settings → API & MCP).",
   }, { status: userId ? 200 : 401 });
 }
 export async function DELETE() {

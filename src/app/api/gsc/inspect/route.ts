@@ -61,7 +61,7 @@ async function getSitemapUrlsFallback(siteId: string, siteUrl: string, customSit
     const res = await safeFetch(targetSitemap, {
       timeoutMs: 10_000,
       maxBytes: 10 * 1024 * 1024,
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; OpenGSCCrawler/1.0)' },
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RankTracker ConsoleCrawler/1.0)' },
     });
     if (res.ok) {
       const text = await res.text();

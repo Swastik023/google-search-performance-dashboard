@@ -13,7 +13,7 @@ export const AUDIT_PAGE_CEILING = 5000;
 import { AUDIT_ACTIONABLE_RULE_IDS, AUDIT_RULE_IDS, AUDIT_SCORING_RULE_IDS, evaluateAuditPageRules, type AuditPageFacts } from "@/lib/audit/rules";
 import { compareAuditFindings } from "@/lib/audit/verification";
 
-const UA = "Mozilla/5.0 (compatible; OpenGSC-Audit/1.0; +https://opengsc.org)";
+const UA = "Mozilla/5.0 (compatible; RankTracker Console-Audit/1.0; +https://ranktracker-console.org)";
 const PAGE_TIMEOUT_MS = 20_000;
 const CONCURRENCY = 4;
 const POLITENESS_DELAY_MS = 150; // per worker, between requests — be a good citizen on the user's own site

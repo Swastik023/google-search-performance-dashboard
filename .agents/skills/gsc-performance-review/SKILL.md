@@ -1,9 +1,9 @@
 ---
 name: gsc-performance-review
-description: "Review a site's Google Search Console performance via the OpenGSC MCP: find striking-distance wins, cannibalization conflicts, and weak pages, and produce a prioritized action plan."
+description: "Review a site's Google Search Console performance via the RankTracker Console MCP: find striking-distance wins, cannibalization conflicts, and weak pages, and produce a prioritized action plan."
 ---
 
-# OpenGSC Performance Review
+# RankTracker Console Performance Review
 
 ## Goal
 
@@ -14,7 +14,7 @@ Turn a site's synced GSC data into a short, prioritized list of actions: which q
 - The site (domain). If unknown, call `list_sites` first and ask the user which site to review.
 - Optional: lookback window in days (default 90 for opportunity analysis, 28 for the traffic overview).
 
-## OpenGSC MCP tools
+## RankTracker Console MCP tools
 
 - `list_sites`: discover connected sites and their exact identifiers.
 - `get_search_performance`: totals + top queries/pages. Run once with `dimension=query` and once with `dimension=page`.
@@ -48,6 +48,6 @@ Close with anything that needs the user's judgment (e.g. two cannibalizing pages
 
 ## Guardrails
 
-- Do not invent metrics or queries. If a tool returns no data, say so and suggest the user syncs the site in OpenGSC first.
+- Do not invent metrics or queries. If a tool returns no data, say so and suggest the user syncs the site in RankTracker Console first.
 - Positions are averages over the window — call them "avg position", not "rank".
 - Do not recommend deleting pages; recommend merge/redirect/differentiate and let the user decide.

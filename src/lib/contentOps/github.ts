@@ -44,7 +44,7 @@ async function githubRequest<T>(token: string, pathname: string, init: RequestIn
       Accept: "application/vnd.github+json",
       Authorization: `Bearer ${token}`,
       "X-GitHub-Api-Version": API_VERSION,
-      "User-Agent": "OpenGSC-Content-Operations",
+      "User-Agent": "RankTracker Console-Content-Operations",
       "Content-Type": "application/json",
       ...(init.headers || {}),
     },
@@ -183,7 +183,7 @@ export async function createContentPullRequest(token: string, config: RepoConfig
   const c = validateRepositoryInput(config as unknown as Record<string, unknown>);
   const suffix = input.operationId.replace(/[^A-Za-z0-9]/g, "").slice(-10) || Date.now().toString(36);
   const slug = input.title.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 38) || "content";
-  const branch = `opengsc/${slug}-${suffix}`;
+  const branch = `ranktracker-console/${slug}-${suffix}`;
   const repoPath = `/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}`;
 
   const base: any = await githubRequest(token, `${repoPath}/git/ref/heads/${pathPart(c.baseBranch)}`);

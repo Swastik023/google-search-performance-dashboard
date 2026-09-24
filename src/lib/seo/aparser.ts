@@ -378,7 +378,7 @@ export async function aparserAddTask(creds: AparserCreds, task: AparserAddTask):
     parsers: [[task.parser, task.preset || "default"]],
     resultsFormat: task.resultsFormat || "$p1.preset",
     resultsSaveTo: "file",
-    resultsFileName: `OpenGSC-${task.parser.replace(/::/g, "-")}-${Date.now()}.txt`,
+    resultsFileName: `RankTracker Console-${task.parser.replace(/::/g, "-")}-${Date.now()}.txt`,
     additionalFormats: [],
     keepUnique: 1,
     resultsUnique: "no",

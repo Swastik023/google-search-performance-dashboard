@@ -40,7 +40,7 @@ async function loadParser(): Promise<typeof import("@/lib/seo/linkPlacement")> {
   return import("@/lib/seo/linkPlacement");
 }
 
-const UA = "Mozilla/5.0 (compatible; OpenGSC-PlacementCheck/1.0; +https://opengsc.org)";
+const UA = "Mozilla/5.0 (compatible; RankTracker Console-PlacementCheck/1.0; +https://ranktracker-console.org)";
 const ATTEMPTS = 3;
 const BACKOFF_MS = [0, 1_200, 3_500]; // same scheme as check-alive: a cheap check gets short backoffs
 const CONCURRENCY = 4;                // same as the audit crawler

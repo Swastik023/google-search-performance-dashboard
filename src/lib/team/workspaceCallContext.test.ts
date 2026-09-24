@@ -40,7 +40,7 @@ const world: { session: unknown; headers: Headers; prisma: unknown; settings: Re
 };
 (globalThis as unknown as { __ws: typeof world }).__ws = world;
 
-const dir = mkdtempSync(join(tmpdir(), "opengsc-ws-"));
+const dir = mkdtempSync(join(tmpdir(), "ranktracker-console-ws-"));
 const stub = (name: string, src: string) => {
   const p = join(dir, name);
   writeFileSync(p, src);
