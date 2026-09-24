@@ -2,7 +2,10 @@
 
 <img src="logo.svg" alt="OpenGSC" width="88" />
 
-# OpenGSC
+# RankTracker Console — Google Search Console Intelligence & SERP Tracker
+
+> A real-time Google Search Console analytics dashboard tracking keyword decay, SERP rankings, CTR trends, and automated indexation diagnostics.
+
 
 **Your Google Search Console, all in one place — plus an AI SEO content suite and a private indexing network.**
 
