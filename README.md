@@ -2,7 +2,9 @@
 
 <img src="logo.svg" alt="RankTracker Console" width="88" />
 
-# RankTracker Console — Google Search Console Intelligence & SERP Tracker
+# Google Search Console SEO Performance Dashboard
+
+> A Google Search Console intelligence dashboard with automated SERP tracking and keyword decay alerts.
 
 > A real-time Google Search Console analytics dashboard tracking keyword decay, SERP rankings, CTR trends, and automated indexation diagnostics.
 
