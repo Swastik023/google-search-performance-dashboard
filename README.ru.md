@@ -8,13 +8,13 @@
 
 Развертывается на вашем собственном VPS. Никаких подписок, никаких лимитов на количество мест, третьи лица не имеют доступа к вашим данным.
 
-[![Version 1.7.1](https://img.shields.io/badge/version-1.7.1-brightgreen)](https://github.com/swastik-agnihotri/ranktracker-console/releases)
+[![Version 1.7.1](https://img.shields.io/badge/version-1.7.1-brightgreen)](https://github.com/Swastik023/google-search-performance-dashboard/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue?logo=typescript)](https://www.typescriptlang.org/)
 ![Self-hosted](https://img.shields.io/badge/deploy-self--hosted%20VPS-2ea44f)
-[![GitHub stars](https://img.shields.io/github/stars/swastik-agnihotri/ranktracker-console?style=flat)](https://github.com/swastik-agnihotri/ranktracker-console/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/swastik-agnihotri/ranktracker-console)](https://github.com/swastik-agnihotri/ranktracker-console/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Swastik023/google-search-performance-dashboard?style=flat)](https://github.com/Swastik023/google-search-performance-dashboard/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/Swastik023/google-search-performance-dashboard)](https://github.com/Swastik023/google-search-performance-dashboard/issues)
 
 [Русская версия](README.ru.md) · [English version](README.md)
 
@@ -25,7 +25,7 @@
 <br/>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/swastik-agnihotri/ranktracker-console/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/Swastik023/google-search-performance-dashboard/main/install.sh | sudo bash
 ```
 
 <br/>
@@ -352,7 +352,7 @@ claude mcp add --transport http ranktracker-console https://your-domain.com/api/
 
 Краткий вариант установки на чистый сервер:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/swastik-agnihotri/ranktracker-console/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/Swastik023/google-search-performance-dashboard/main/install.sh | sudo bash
 ```
 Скрипт спросит домен, установит Node.js 24 LTS, PM2, Nginx, выпустит SSL Let's Encrypt, настроит файрвол и запустит приложение.
 

@@ -13,13 +13,13 @@
 
 Self-hosted on your own VPS. No subscriptions, no seat limits, no third party touching your data.
 
-[![Version 1.7.1](https://img.shields.io/badge/version-1.7.1-brightgreen)](https://github.com/swastik-agnihotri/ranktracker-console/releases)
+[![Version 1.7.1](https://img.shields.io/badge/version-1.7.1-brightgreen)](https://github.com/Swastik023/google-search-performance-dashboard/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue?logo=typescript)](https://www.typescriptlang.org/)
 ![Self-hosted](https://img.shields.io/badge/deploy-self--hosted%20VPS-2ea44f)
-[![GitHub stars](https://img.shields.io/github/stars/swastik-agnihotri/ranktracker-console?style=flat)](https://github.com/swastik-agnihotri/ranktracker-console/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/swastik-agnihotri/ranktracker-console)](https://github.com/swastik-agnihotri/ranktracker-console/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Swastik023/google-search-performance-dashboard?style=flat)](https://github.com/Swastik023/google-search-performance-dashboard/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/Swastik023/google-search-performance-dashboard)](https://github.com/Swastik023/google-search-performance-dashboard/issues)
 
 [Русская версия](README.ru.md) · [English version](README.md)
 
@@ -30,7 +30,7 @@ Self-hosted on your own VPS. No subscriptions, no seat limits, no third party to
 <br/>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/swastik-agnihotri/ranktracker-console/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/Swastik023/google-search-performance-dashboard/main/install.sh | sudo bash
 ```
 
 <br/>
@@ -532,7 +532,7 @@ Every step below is a direct link that opens exactly the right page in Google Cl
 ### 2. Run the one-line installer
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/swastik-agnihotri/ranktracker-console/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/Swastik023/google-search-performance-dashboard/main/install.sh | sudo bash
 ```
 
 The script clones the repo into `/root/ranktracker-console`, then asks for: your domain, whether to install Nginx (recommended), whether to set up SSL via Let's Encrypt (recommended), an email for the SSL cert, and your Google Client ID/Secret. It then automatically installs Node.js 24 LTS, installs PM2 and runs the app as a managed service, configures Nginx as a reverse proxy, issues an SSL certificate via Certbot, and configures the UFW firewall (ports 22/80/443).
@@ -555,7 +555,7 @@ Sign in with Google — the **first account becomes the dashboard owner**. Add m
 
 ```bash
 # Clone
-git clone https://github.com/swastik-agnihotri/ranktracker-console.git
+git clone https://github.com/Swastik023/google-search-performance-dashboard.git
 cd ranktracker-console
 
 # Node.js 24 (Active LTS — Node 20 reached end of life in April 2026)
